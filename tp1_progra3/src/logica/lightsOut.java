@@ -22,7 +22,7 @@ public class lightsOut {
 			}
 			else if (i<juego.tamanio()) { 
 				juego.agregarArista(i, i+1);
-			}
+			} 
 		}
 	}
 	
