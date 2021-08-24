@@ -4,7 +4,7 @@ package logica;
 public class lightsOut extends Grafo{
 
 	public lightsOut(int i) {
-		super(i);
+		super(i*i);
 	}
 	
 	/**

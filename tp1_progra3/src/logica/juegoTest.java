@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class juegoTest {
-	lightsOut game = new lightsOut(16);
+	lightsOut game = new lightsOut(5);
 	void setUp() throws Exception {
 		
 	}
