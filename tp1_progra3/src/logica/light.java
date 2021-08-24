@@ -11,4 +11,8 @@ public class light {
 		prendido = rd.nextBoolean();
 		
 	}
+	
+	public void cambiarEstado() {
+		this.prendido = !prendido;
+	}
 }
