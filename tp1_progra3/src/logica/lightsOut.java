@@ -15,7 +15,7 @@ public class lightsOut extends Grafo{
 	 * 
 	 *  0-0-0-0
 	 *  0-0-0-0
-	 *  0-0-0-0
+	 *  0-0-0-0 
 	 *  0-0-0-0
 	 * 
 	 * @param columnas
