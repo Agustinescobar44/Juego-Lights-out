@@ -6,7 +6,7 @@ public class lightsOut extends Grafo{
 	public lightsOut(int i) {
 		super(i*i);
 	}
-	
+	 
 	/**
 	 * genera una cuadrilla con la cantidad de columnas que le pasamos por 
 	 * parametro
