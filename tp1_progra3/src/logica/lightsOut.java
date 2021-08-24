@@ -20,7 +20,7 @@ public class lightsOut {
 				juego.agregarArista(i, i+4);
 				contador=1;
 			}
-			else if (i<juego.tamanio()) {
+			else if (i<juego.tamanio()) { 
 				juego.agregarArista(i, i+1);
 			}
 		}
