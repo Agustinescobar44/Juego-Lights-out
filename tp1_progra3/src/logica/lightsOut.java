@@ -14,7 +14,7 @@ public class lightsOut {
 			if(contador != 4){
 				juego.agregarArista(i, i+1);
 				juego.agregarArista(i, i+4);
-				contador++;
+				contador++; 
 			}
 			else if(contador==4){
 				juego.agregarArista(i, i+4);
