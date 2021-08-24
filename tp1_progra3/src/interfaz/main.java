@@ -1,10 +1,11 @@
 package interfaz;
 
+import logica.lightsOut;
+
 public class main {
 
 	public static void main(String[] args) {
-		App window = new App();
-		window.frame.setVisible(true);
+		lightsOut game = new lightsOut(16);
 	}
 
 }
