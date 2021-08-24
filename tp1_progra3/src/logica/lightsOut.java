@@ -7,6 +7,19 @@ public class lightsOut extends Grafo{
 		super(i);
 	}
 	
+	/**
+	 * genera una cuadrilla con la cantidad de columnas que le pasamos por 
+	 * parametro
+	 * 
+	 * ej 4 columnas 
+	 * 
+	 *  0-0-0-0
+	 *  0-0-0-0
+	 *  0-0-0-0
+	 *  0-0-0-0
+	 * 
+	 * @param columnas
+	 */
 	public void setearVecinos(int columnas ) { 
 		for (int i = 0; i < tamanio(); i++) {
 			

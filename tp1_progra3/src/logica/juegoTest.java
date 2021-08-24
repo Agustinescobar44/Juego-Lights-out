@@ -12,10 +12,25 @@ class juegoTest {
 	}
 
 	@Test
-	void testSetearVecinos() {
+	void testSetearVecinosCon4Columnas() {
 		game.setearVecinos(4);
 		assertEquals(2, game.dameVecinos(0).size());
 		assertEquals(4, game.dameVecinos(7).size());
+		assertEquals(2, game.dameVecinos(game.tamanio()-1).size());
+	}
+	@Test
+	void testSetearVecinosCon5Columnas() {
+		game.setearVecinos(5);
+		assertEquals(2, game.dameVecinos(0).size());
+		assertEquals(4, game.dameVecinos(6).size());
+		assertEquals(4, game.dameVecinos(8).size());
+		assertEquals(2, game.dameVecinos(game.tamanio()-1).size());
+	}
+	@Test
+	void testSetearVecinosCon3Columnas() {
+		game.setearVecinos(3);
+		assertEquals(2, game.dameVecinos(0).size());
+		assertEquals(4, game.dameVecinos(5).size());
 		assertEquals(2, game.dameVecinos(game.tamanio()-1).size());
 	}
 
