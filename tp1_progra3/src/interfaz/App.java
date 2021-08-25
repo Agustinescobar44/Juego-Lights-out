@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 
 import com.sun.java.swing.plaf.windows.resources.windows;
 
+import logica.Grafo;
+import logica.lightsOut;
+
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import java.awt.GridBagLayout;
@@ -20,7 +23,7 @@ import java.awt.event.ActionEvent;
 public class App {
 
 	JFrame frame;
-	ventana ventana;
+	lightsOut juego;
 	/**
 	 * Launch the application.
 	 */
@@ -41,7 +44,7 @@ public class App {
 	 * Create the application.
 	 */
 	public App() {
-		ventana= new ventana();
+		juego= new lightsOut(4);
 		initialize();
 	}
 
@@ -55,16 +58,20 @@ public class App {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 800, 600);
-		frame.setDefaultCloseOperation(ventana.mostrarse());
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new GridLayout(0, 4, 0, 0));
 		
 		JButton boton11 = new JButton("");
 		boton11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				boton11.setIcon(null);
+				juego.apretar(0);
+				if(juego.estaPrendida(0)) 
+					boton11.setIcon(new ImageIcon("O:\\Escritorio\\60182097-bombilla-de-luz-incandescente-aislada-en-el-fondo-blanco.jpg"));
+				else boton11.setIcon(null);
 			}
 		});
-		boton11.setIcon(new ImageIcon("O:\\Escritorio\\60182097-bombilla-de-luz-incandescente-aislada-en-el-fondo-blanco.jpg"));
+		if(juego.estaPrendida(0))
+			boton11.setIcon(new ImageIcon("O:\\Escritorio\\60182097-bombilla-de-luz-incandescente-aislada-en-el-fondo-blanco.jpg"));
 		boton11.setMaximumSize(new Dimension(1, 1));
 		boton11.setBorderPainted(false);
 		frame.getContentPane().add(boton11);
