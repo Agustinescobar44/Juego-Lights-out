@@ -69,9 +69,6 @@ public class lightsOut extends Grafo{
 	public boolean estaPrendida(int i ) {
 		return luces[i].prendido;
 	}
-	public void apretar(int i ) {
-		luces[i].cambiarEstado();
-	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

@@ -64,7 +64,7 @@ public class App {
 		JButton boton11 = new JButton("");
 		boton11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				juego.apretar(0);
+				juego.cambiarLuces(0);
 				if(juego.estaPrendida(0)) 
 					boton11.setIcon(new ImageIcon("O:\\Escritorio\\60182097-bombilla-de-luz-incandescente-aislada-en-el-fondo-blanco.jpg"));
 				else boton11.setIcon(null);
