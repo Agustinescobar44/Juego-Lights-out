@@ -3,6 +3,9 @@ package interfaz;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+
+import com.sun.java.swing.plaf.windows.resources.windows;
+
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import java.awt.GridBagLayout;
@@ -17,7 +20,7 @@ import java.awt.event.ActionEvent;
 public class App {
 
 	JFrame frame;
-
+	ventana ventana;
 	/**
 	 * Launch the application.
 	 */
@@ -38,16 +41,21 @@ public class App {
 	 * Create the application.
 	 */
 	public App() {
+		ventana= new ventana();
 		initialize();
 	}
 
+	public void mostrarse() {
+		frame.setVisible(true);
+	}
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 800, 600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(ventana.mostrarse());
 		frame.getContentPane().setLayout(new GridLayout(0, 4, 0, 0));
 		
 		JButton boton11 = new JButton("");
@@ -62,6 +70,7 @@ public class App {
 		frame.getContentPane().add(boton11);
 		
 		JButton btnNewButton_1 = new JButton("New button");
+		
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_6 = new JButton("New button");

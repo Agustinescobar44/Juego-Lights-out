@@ -2,11 +2,10 @@ package logica;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class juegoTest {
-	lightsOut game = new lightsOut(5);
+	lightsOut game = new lightsOut(4);
 	void setUp() throws Exception {
 		
 	}
@@ -32,6 +31,15 @@ class juegoTest {
 		assertEquals(2, game.dameVecinos(0).size());
 		assertEquals(4, game.dameVecinos(5).size());
 		assertEquals(2, game.dameVecinos(game.tamanio()-1).size());
+	}
+	@Test
+	void testLuces() {
+		game.setearVecinos(4);
+		System.out.println(game);
+		game.cambiarLuces(5);
+		System.out.println("-------------------------------");
+		System.out.println(game);
+		
 	}
 
 }

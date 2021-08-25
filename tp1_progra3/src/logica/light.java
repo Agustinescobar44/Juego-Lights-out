@@ -15,4 +15,10 @@ public class light {
 	public void cambiarEstado() {
 		this.prendido = !prendido;
 	}
+
+	@Override
+	public String toString() {
+		return "light [prendido=" + prendido + "]";
+	}
+	
 }
