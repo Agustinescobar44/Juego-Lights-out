@@ -45,7 +45,7 @@ public class lightsOut extends Grafo{
 				else{
 					agregarArista(i, i+columnas);
 				}
-			}
+			} 
 			 
 		}
 	}
