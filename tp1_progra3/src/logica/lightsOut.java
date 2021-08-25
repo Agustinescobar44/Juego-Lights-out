@@ -30,7 +30,7 @@ public class lightsOut extends Grafo{
 	 * 
 	 * @param columnas
 	 */
-	public void setearVecinos(int columnas ) { 
+	private void setearVecinos(int columnas ) { 
 		for (int i = 0; i < tamanio(); i++) {
 			
 			if(i<tamanio()-1) {
