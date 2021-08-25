@@ -14,6 +14,7 @@ public class lightsOut extends Grafo{
 		for (int j = 0; j < i*i; j++) {
 			luces[j] = new light();
 		}
+		setearVecinos(i);
 	}
 	 
 	/**
