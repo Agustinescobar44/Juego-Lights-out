@@ -7,9 +7,13 @@ import javax.swing.JFrame;
 import logica.lightsOut;
 
 import java.awt.GridLayout;
+import java.awt.Image;
+
 import javax.swing.JButton;
+import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
-import java.awt.Dimension;
+
+import java.awt.Component;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
@@ -17,8 +21,12 @@ import java.awt.Toolkit;
 
 public class App {
 
-	JFrame frmLightsOut;
-	lightsOut juego;
+	private String luzPrendida= "/imagenes/luzPrendidaModif.png";
+	private String luzApagada= "/imagenes/luzApagadaModif.png";
+	private JFrame frmLightsOut;
+	private lightsOut juego;
+	ImageIcon luzPrendidaIcono=  new ImageIcon(App.class.getResource(luzPrendida));
+	ImageIcon luzApagadaIcono= new ImageIcon(App.class.getResource(luzApagada));
 	/**
 	 * Launch the application.
 	 */
@@ -56,33 +64,31 @@ public class App {
 		frmLightsOut.setTitle("Lights Out!");
 		frmLightsOut.setBounds(100, 100, 800, 600);
 		frmLightsOut.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmLightsOut.getContentPane().setLayout(new GridLayout(0, 4, 0, 0));
+		frmLightsOut.getContentPane().setLayout(new GridLayout(0, 4, 2, 2));
+		
+		
+		
+		
 		
 		JButton boton11 = new JButton("");
 		
 		boton11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				juego.cambiarLuces(0);
-				if(juego.estaPrendida(0)) 
-					boton11.setIcon(new ImageIcon(App.class.getResource("/imagenes/luzPrendidaModif.png")));
-				else boton11.setIcon(new ImageIcon(App.class.getResource("/imagenes/luzApagadaModif.png")));
+				verLuces(frmLightsOut);
 			}
 		});
-		if(juego.estaPrendida(0))
-			boton11.setIcon(new ImageIcon(App.class.getResource("/imagenes/luzPrendidaModif.png")));
-		else {
-			boton11.setIcon(new ImageIcon(App.class.getResource("/imagenes/luzApagadaModif.png")));
-		}
-		boton11.setMaximumSize(new Dimension(1, 1));
-		boton11.setBorderPainted(false);
 		frmLightsOut.getContentPane().add(boton11);
 		
-		JButton btnNewButton_1 = new JButton("New button");
 		
-		frmLightsOut.getContentPane().add(btnNewButton_1);
-		
-		JButton btnNewButton_6 = new JButton("New button");
-		frmLightsOut.getContentPane().add(btnNewButton_6);
+		JButton boton12 = new JButton("New button");
+		boton12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				juego.cambiarLuces(1);
+				verLuces(frmLightsOut);
+			}
+		});
+		frmLightsOut.getContentPane().add(boton12);
 		
 		JButton btnNewButton_7 = new JButton("New button");
 		frmLightsOut.getContentPane().add(btnNewButton_7);
@@ -123,6 +129,30 @@ public class App {
 		JButton btnNewButton_14 = new JButton("New button");
 		frmLightsOut.getContentPane().add(btnNewButton_14);
 		
+		JButton boton12_1 = new JButton("New button");
+		frmLightsOut.getContentPane().add(boton12_1);
 		
+		verLuces(frmLightsOut);
+		
+	}
+	
+	private void verLuces(JFrame frame) {
+		
+		Component[] componentes= frame.getContentPane().getComponents();
+		Image luzprendidaimage = luzPrendidaIcono.getImage();
+		Image luzapagadaImage = luzApagadaIcono.getImage();
+		
+		for (int i = 0; i < componentes.length; i++) {
+			if(componentes[i] instanceof JButton) {
+				if(juego.estaPrendida(i)) {
+					Image luzprendidaCambiada = luzprendidaimage.getScaledInstance(frame.getWidth()/4, frame.getHeight()/4, Image.SCALE_SMOOTH);
+					((AbstractButton) componentes[i]).setIcon(new ImageIcon(luzprendidaCambiada));
+				}else {
+					Image luzapagadaCambiada = luzapagadaImage.getScaledInstance(frame.getWidth()/4, frame.getHeight()/4, Image.SCALE_SMOOTH);
+					((AbstractButton) componentes[i]).setIcon(new ImageIcon(luzapagadaCambiada));
+				}
+					
+			}
+		}
 	}
 }
