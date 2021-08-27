@@ -10,9 +10,6 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
-
-import javax.swing.JDesktopPane;
-
 public class ventana {
 
 	private JFrame menu;
