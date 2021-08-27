@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 
 import java.awt.Component;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 
@@ -47,7 +48,7 @@ public class App {
 	 * Create the application.
 	 */
 	public App() {
-		juego= new lightsOut(4);
+		juego= new lightsOut(3);
 		initialize();
 	}
 
@@ -64,76 +65,31 @@ public class App {
 		frmLightsOut.setTitle("Lights Out!");
 		frmLightsOut.setBounds(100, 100, 800, 600);
 		frmLightsOut.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmLightsOut.getContentPane().setLayout(new GridLayout(0, 4, 2, 2));
+		frmLightsOut.getContentPane().setLayout(new GridLayout(0, 3, 2, 2));
 		
+		ArrayList<JButton> botones = new ArrayList<JButton>();
 		
-		
-		
-		
-		JButton boton11 = new JButton("");
-		
-		boton11.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				juego.cambiarLuces(0);
-				verLuces(frmLightsOut);
-			}
-		});
-		frmLightsOut.getContentPane().add(boton11);
-		
-		
-		JButton boton12 = new JButton("New button");
-		boton12.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				juego.cambiarLuces(1);
-				verLuces(frmLightsOut);
-			}
-		});
-		frmLightsOut.getContentPane().add(boton12);
-		
-		JButton btnNewButton_7 = new JButton("New button");
-		frmLightsOut.getContentPane().add(btnNewButton_7);
-		
-		JButton btnNewButton_2 = new JButton("New button");
-		frmLightsOut.getContentPane().add(btnNewButton_2);
-		
-		JButton btnNewButton_3 = new JButton("New button");
-		frmLightsOut.getContentPane().add(btnNewButton_3);
-		
-		JButton btnNewButton_8 = new JButton("New button");
-		frmLightsOut.getContentPane().add(btnNewButton_8);
-		
-		JButton btnNewButton_10 = new JButton("New button");
-		frmLightsOut.getContentPane().add(btnNewButton_10);
-		
-		JButton btnNewButton_4 = new JButton("New button");
-		frmLightsOut.getContentPane().add(btnNewButton_4);
-		
-		JButton btnNewButton_5 = new JButton("New button");
-		frmLightsOut.getContentPane().add(btnNewButton_5);
-		
-		JButton btnNewButton_9 = new JButton("New button");
-		frmLightsOut.getContentPane().add(btnNewButton_9);
-		
-		JButton btnNewButton_11 = new JButton("New button");
-		frmLightsOut.getContentPane().add(btnNewButton_11);
-		
-		JButton btnNewButton = new JButton("New button");
-		frmLightsOut.getContentPane().add(btnNewButton);
-		
-		JButton btnNewButton_12 = new JButton("New button");
-		frmLightsOut.getContentPane().add(btnNewButton_12);
-		
-		JButton btnNewButton_13 = new JButton("New button");
-		frmLightsOut.getContentPane().add(btnNewButton_13);
-		
-		JButton btnNewButton_14 = new JButton("New button");
-		frmLightsOut.getContentPane().add(btnNewButton_14);
-		
-		JButton boton12_1 = new JButton("New button");
-		frmLightsOut.getContentPane().add(boton12_1);
+		for (int i = 0; i < 9; i++) {
+			JButton temp = new JButton("");
+			agregarActionListener(temp, i);
+			botones.add(temp);
+			frmLightsOut.getContentPane().add(temp);
+		}
 		
 		verLuces(frmLightsOut);
 		
+	}
+	
+	private void agregarActionListener(JButton boton, int i ) {
+		boton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				juego.cambiarLuces(i);
+				verLuces(frmLightsOut);
+				if(juego.isGanador()) {
+					frmLightsOut.dispose();
+				}
+			}
+		});
 	}
 	
 	private void verLuces(JFrame frame) {
