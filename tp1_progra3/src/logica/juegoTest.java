@@ -32,12 +32,9 @@ class juegoTest {
 		assertEquals(2, game.dameVecinos(game.tamanio()-1).size());
 	}
 	@Test
-	void testLuces() {
-		System.out.println(game);
-		game.cambiarLuces(5);
-		System.out.println("-------------------------------");
-		System.out.println(game);
-		
+	void testVecinos() {
+		game= new lightsOut(4);
+		assertEquals(2, game.dameVecinos(3));
 	}
 
 }
