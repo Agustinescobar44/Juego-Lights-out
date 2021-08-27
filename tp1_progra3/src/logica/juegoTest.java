@@ -13,7 +13,7 @@ class juegoTest {
 	@Test
 	void testSetearVecinosCon4Columnas() {
 		assertEquals(2, game.dameVecinos(0).size());
-		assertEquals(4, game.dameVecinos(7).size());
+		assertEquals(4, game.dameVecinos(5).size());
 		assertEquals(2, game.dameVecinos(game.tamanio()-1).size());
 	}
 	@Test
@@ -28,13 +28,13 @@ class juegoTest {
 	void testSetearVecinosCon3Columnas() {
 		game= new lightsOut(3);
 		assertEquals(2, game.dameVecinos(0).size());
-		assertEquals(4, game.dameVecinos(5).size());
+		assertEquals(4, game.dameVecinos(4).size());
 		assertEquals(2, game.dameVecinos(game.tamanio()-1).size());
 	}
 	@Test
 	void testVecinos() {
 		game= new lightsOut(4);
-		assertEquals(2, game.dameVecinos(3));
+		assertEquals(2, game.dameVecinos(3).size());
 	}
 
 }

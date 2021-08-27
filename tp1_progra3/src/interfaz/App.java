@@ -35,7 +35,7 @@ public class App {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					App window = new App();
+					App window = new App(3);
 					window.frmLightsOut.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,9 +47,9 @@ public class App {
 	/**
 	 * Create the application.
 	 */
-	public App() {
-		juego= new lightsOut(3);
-		initialize();
+	public App(int i) {
+		juego= new lightsOut(i);
+		initialize(i);
 	}
 
 	public void mostrarse() {
@@ -59,19 +59,19 @@ public class App {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(int i ) {
 		frmLightsOut = new JFrame();
 		frmLightsOut.setIconImage(Toolkit.getDefaultToolkit().getImage(App.class.getResource("/imagenes/icono_lights_out.png")));
 		frmLightsOut.setTitle("Lights Out!");
 		frmLightsOut.setBounds(100, 100, 800, 600);
 		frmLightsOut.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmLightsOut.getContentPane().setLayout(new GridLayout(0, 3, 2, 2));
+		frmLightsOut.getContentPane().setLayout(new GridLayout(0, i, 2, 2));
 		
 		ArrayList<JButton> botones = new ArrayList<JButton>();
 		
-		for (int i = 0; i < 9; i++) {
+		for (int j = 0; j < i*i; j++) {
 			JButton temp = new JButton("");
-			agregarActionListener(temp, i);
+			agregarActionListener(temp, j);
 			botones.add(temp);
 			frmLightsOut.getContentPane().add(temp);
 		}

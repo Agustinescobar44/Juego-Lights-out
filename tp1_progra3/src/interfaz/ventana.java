@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 public class ventana {
 
 	private JFrame menu;
-	App juego= new App();
+	App juego= new App(4);
 	dificultad dif = new dificultad();
 	/**
 	 * Launch the application.
