@@ -51,8 +51,8 @@ public class lightsOut extends Grafo{
 	}
 	
 	public void cambiarLuces(int i) {
-		Set<Integer> vecinos= dameVecinos(i);
 		luces[i].cambiarEstado();
+		Set<Integer> vecinos= dameVecinos(i);
 		for (Integer integer : vecinos) {
 			luces[integer].cambiarEstado();
 		}
