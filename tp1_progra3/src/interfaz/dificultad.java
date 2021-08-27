@@ -6,8 +6,10 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-public class dificultad {
+public class dificultad { 
 
 	private JFrame frame;
 	/**
@@ -46,6 +48,14 @@ public class dificultad {
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnNewButton = new JButton("volver");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ventana vent=new ventana();
+				vent.mostrarse();
+				frame.dispose();
+			}
+		});
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}

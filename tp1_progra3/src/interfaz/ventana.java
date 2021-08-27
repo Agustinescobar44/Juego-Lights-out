@@ -13,11 +13,10 @@ import javax.swing.SwingConstants;
 
 import javax.swing.JDesktopPane;
 
-public class ventana {
+public class ventana { 
 
 	private JFrame menu;
 	App juego= new App();
-	dificultad dif = new dificultad();
 	/**
 	 * Launch the application.
 	 */
@@ -81,7 +80,9 @@ public class ventana {
 		JButton btnNewButton_3 = new JButton("dificultad");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dificultad dif=new dificultad();
 				dif.mostrarse();
+				menu.dispose();
 			}
 		});
 		btnNewButton_3.setBounds(163, 110, 89, 23);
