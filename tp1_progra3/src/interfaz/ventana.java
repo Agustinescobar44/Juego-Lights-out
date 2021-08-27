@@ -79,6 +79,7 @@ public class ventana {
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dif.mostrarse();
+				menu.dispose();
 			}
 		});
 		btnNewButton_3.setBounds(163, 110, 89, 23);
