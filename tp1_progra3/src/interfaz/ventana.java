@@ -1,5 +1,6 @@
 package interfaz;
 
+import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -8,6 +9,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.Window;
+
 import javax.swing.SwingConstants;
 
 public class ventana {
@@ -47,7 +51,10 @@ public class ventana {
 	 */
 	private void initialize() {
 		menu = new JFrame();
-		menu.setBounds(100, 100, 450, 300);
+		Dimension tamañoventana = Toolkit.getDefaultToolkit().getScreenSize();
+		int ancho=450;
+		int alto = 300;
+		menu.setBounds((tamañoventana.width/2)-(ancho/2), (tamañoventana.height/2)-(alto/2), ancho, alto);
 		menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		menu.getContentPane().setLayout(null);
 		
