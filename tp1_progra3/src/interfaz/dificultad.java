@@ -12,6 +12,7 @@ import java.awt.event.MouseEvent;
 public class dificultad { 
 
 	private JFrame frame;
+	private App juego;
 	/**
 	 * Launch the application.
 	 */
@@ -43,7 +44,7 @@ public class dificultad {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 285, 250);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -60,8 +61,40 @@ public class dificultad {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(155, 168, 89, 23);
+		btnNewButton.setBounds(59, 177, 159, 23);
 		frame.getContentPane().add(btnNewButton);
+		
+		JButton facil = new JButton("Facil");
+		facil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				iniciarJuego(3);
+			}
+		});
+		facil.setBounds(91, 23, 89, 23);
+		frame.getContentPane().add(facil);
+		
+		JButton normal = new JButton("Normal");
+		normal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				iniciarJuego(4);
+			}
+		});
+		normal.setBounds(91, 71, 89, 23);
+		frame.getContentPane().add(normal);
+		
+		JButton dificil = new JButton("Dificil");
+		dificil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				iniciarJuego(5);
+			}
+		});
+		dificil.setBounds(91, 121, 89, 23);
+		frame.getContentPane().add(dificil);
 	}
-
+	
+	private void iniciarJuego(int i) {
+		juego = new App(i);
+		juego.mostrarse();
+		frame.dispose();
+	}
 }

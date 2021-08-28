@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 public class ventana {
 
 	private JFrame menu;
-	App juego= new App(4);
+	App juego;
 	dificultad dif = new dificultad();
 	/**
 	 * Launch the application.
@@ -54,7 +54,7 @@ public class ventana {
 		JButton btnNewButton = new JButton("nuevo juego");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				juego.mostrarse();
+				dif.mostrarse();
 				menu.dispose();
 			}
 		});
