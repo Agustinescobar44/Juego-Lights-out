@@ -17,6 +17,8 @@ import javax.swing.ImageIcon;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
@@ -24,12 +26,10 @@ import java.awt.Toolkit;
 
 public class App {
 
-	private String luzPrendida= "/imagenes/luzPrendidaModif.png";
-	private String luzApagada= "/imagenes/luzApagadaModif.png";
 	private JFrame frmLightsOut;
 	private lightsOut juego;
-	ImageIcon luzPrendidaIcono=  new ImageIcon(App.class.getResource(luzPrendida));
-	ImageIcon luzApagadaIcono= new ImageIcon(App.class.getResource(luzApagada));
+	private ImageIcon luzPrendidaIcono=  new ImageIcon(App.class.getResource("/imagenes/luzPrendidaModif.png"));
+	private ImageIcon luzApagadaIcono= new ImageIcon(App.class.getResource("/imagenes/luzApagadaModif.png"));
 	/**
 	 * Launch the application.
 	 */
@@ -76,6 +76,8 @@ public class App {
 		frmLightsOut.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmLightsOut.getContentPane().setLayout(new GridLayout(0, i, 2, 2));
 		
+		escalarImagenes(ancho , alto , i);
+		
 		ArrayList<JButton> botones = new ArrayList<JButton>();
 		
 		for (int j = 0; j < i*i; j++) {
@@ -84,11 +86,12 @@ public class App {
 			temp.setFocusPainted(false);
 			temp.setOpaque(false);
 			agregarActionListener(temp, j , ancho , alto , i);
+			agregarHoverBotones(temp);
 			botones.add(temp);
 			frmLightsOut.getContentPane().add(temp);
 		}
 		
-		verLuces(frmLightsOut , ancho , alto , i);
+		verLuces(frmLightsOut);
 		
 	}
 	
@@ -96,7 +99,7 @@ public class App {
 		boton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				juego.cambiarLuces(i);
-				verLuces(frmLightsOut , ancho , alto , cantidad);
+				verLuces(frmLightsOut );
 				if(juego.isGanador()) {
 					frmLightsOut.dispose();
 				}
@@ -104,29 +107,45 @@ public class App {
 		});
 	}
 	
-	private void verLuces(JFrame frame , int ancho , int alto, int cantidad) {
+	private void agregarHoverBotones(JButton boton) {
+		boton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+			}
+		});
+	}
+	
+	private void escalarImagenes(int ancho , int alto , int cantidad) {
+				//uso las imageicon como image para poder reescalarlas
+				Image luzprendidaimage = luzPrendidaIcono.getImage();
+				Image luzapagadaImage = luzApagadaIcono.getImage();
+				
+				ancho = ancho / cantidad -15;
+				alto = alto / cantidad -15;
+				
+				//reescalo las imagenes basado en el ancho y alto de la pantalla
+				Image luzprendidaCambiada = luzprendidaimage.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
+				Image luzapagadaCambiada = luzapagadaImage.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
+				
+				luzPrendidaIcono = new ImageIcon(luzprendidaCambiada);
+				luzApagadaIcono = new ImageIcon(luzapagadaCambiada);
+	}
+	
+	private void verLuces(JFrame frame) {
 		
 		Component[] componentes= frame.getContentPane().getComponents();
-		
-		//uso las imageicon como image para poder reescalarlas
-		Image luzprendidaimage = luzPrendidaIcono.getImage();
-		Image luzapagadaImage = luzApagadaIcono.getImage();
-		
-		ancho = ancho / cantidad -15;
-		alto = alto / cantidad -15;
-		
-		//reescalo las imagenes basado en el ancho y alto de la pantalla
-		Image luzprendidaCambiada = luzprendidaimage.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
-		Image luzapagadaCambiada = luzapagadaImage.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
 		
 		for (int i = 0; i < componentes.length; i++) {
 			if(componentes[i] instanceof JButton) {
 				if(juego.estaPrendida(i)) {
 					
-					((AbstractButton) componentes[i]).setIcon(new ImageIcon(luzprendidaCambiada));
+					((AbstractButton) componentes[i]).setIcon(luzPrendidaIcono);
 				}else {
 					
-					((AbstractButton) componentes[i]).setIcon(new ImageIcon(luzapagadaCambiada));
+					((AbstractButton) componentes[i]).setIcon(luzApagadaIcono);
 				}
 					
 			}
