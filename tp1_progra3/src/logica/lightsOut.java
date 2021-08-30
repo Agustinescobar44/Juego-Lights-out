@@ -1,27 +1,24 @@
 package logica;
 
 
+import java.util.Random;
 import java.util.Set;
 
 public class lightsOut{
 
-	
-	private light[] luces;
+	private Random rd = new Random();
+	private Boolean[] luces;
 	private Grafo mapa;
 	
 	public lightsOut(int i) {
 		mapa = new Grafo(i*i);
-		luces = new light[i*i];
+		luces = new Boolean[i*i];
 		for (int j = 0; j < i*i; j++) {
-			luces[j] = new light();
+			luces[j] = rd.nextBoolean();
 		}
 		setearVecinos(i);
 	}
 	 
-	/**
-	 * 
-	 * @param columnas
-	 */
 	private void setearVecinos(int columnas ) { 
 		for (int i = 0; i < mapa.tamanio(); i++) {
 			if(i<mapa.tamanio()-1) {
@@ -43,37 +40,23 @@ public class lightsOut{
 	}
 	
 	public void cambiarLuces(int i) {
-		luces[i].cambiarEstado();
+		luces[i] = !luces[i];
 		Set<Integer> vecinos= mapa.dameVecinos(i);
 		for (Integer integer : vecinos) {
-			luces[integer].cambiarEstado();
+			luces[integer]= !luces[integer];
 		}
 	}
 
 	public boolean isGanador() {
 
-        for (light light : luces) {
-            if (light.prendido)
+        for (Boolean luz : luces) {
+            if (luz)
                 return false;
         }
         return true;
     }
 	public boolean estaPrendida(int i ) {
-		return luces[i].prendido;
-	}
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		int contador=1;
-		for (int i = 0; i < luces.length; i++) {
-			
-			builder.append(luces[i]);
-			builder.append("-");
-			if(contador%4 == 0 )
-				builder.append("\n");
-			contador++;
-		}
-		return builder.toString();
+		return luces[i];
 	}
 
 	public Set<Integer> dameVecinos(int i) {
