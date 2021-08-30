@@ -163,7 +163,6 @@ public class App {
 		for (int i = 0; i < componentes.length; i++) {
 			if(componentes[i] instanceof JButton) {
 				if(juego.estaPrendida(i)) {
-					
 					((AbstractButton) componentes[i]).setIcon(luzPrendidaIcono);
 				}else {
 					

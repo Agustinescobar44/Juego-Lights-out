@@ -3,13 +3,14 @@ package logica;
 
 import java.util.Set;
 
-public class lightsOut extends Grafo{
+public class lightsOut{
 
 	
-	light[] luces;
+	private light[] luces;
+	private Grafo mapa;
 	
 	public lightsOut(int i) {
-		super(i*i);
+		mapa = new Grafo(i*i);
 		luces = new light[i*i];
 		for (int j = 0; j < i*i; j++) {
 			luces[j] = new light();
@@ -22,19 +23,19 @@ public class lightsOut extends Grafo{
 	 * @param columnas
 	 */
 	private void setearVecinos(int columnas ) { 
-		for (int i = 0; i < tamanio(); i++) {
-			if(i<tamanio()-1) {
-				if (i>tamanio()-(columnas+1)) { 
-					agregarArista(i, i+1);
+		for (int i = 0; i < mapa.tamanio(); i++) {
+			if(i<mapa.tamanio()-1) {
+				if (i>mapa.tamanio()-(columnas+1)) { 
+					mapa.agregarArista(i, i+1);
 				} 
 				else if(((i+1) % columnas) != 0){
 					
-					agregarArista(i, i+1); 
-					agregarArista(i, i+columnas);
+					mapa.agregarArista(i, i+1); 
+					mapa.agregarArista(i, i+columnas);
 				}
 				
 				else{
-					agregarArista(i, i+columnas);
+					mapa.agregarArista(i, i+columnas);
 				}
 			}
 			 
@@ -43,7 +44,7 @@ public class lightsOut extends Grafo{
 	
 	public void cambiarLuces(int i) {
 		luces[i].cambiarEstado();
-		Set<Integer> vecinos= dameVecinos(i);
+		Set<Integer> vecinos= mapa.dameVecinos(i);
 		for (Integer integer : vecinos) {
 			luces[integer].cambiarEstado();
 		}
@@ -75,6 +76,13 @@ public class lightsOut extends Grafo{
 		return builder.toString();
 	}
 
+	public Set<Integer> dameVecinos(int i) {
+		return mapa.dameVecinos(i);
+	}
+
+	public int tamanio() {
+		return mapa.tamanio();
+	}
 	
 	
 	
