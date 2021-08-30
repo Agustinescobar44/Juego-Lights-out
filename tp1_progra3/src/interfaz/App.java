@@ -31,7 +31,7 @@ public class App {
 	private ImageIcon luzPrendidaIconoHover=  new ImageIcon(App.class.getResource("/imagenes/luzPrendidaModifHover.png"));
 	private ImageIcon luzApagadaIcono= new ImageIcon(App.class.getResource("/imagenes/luzApagadaModif.png"));
 	private ImageIcon luzApagadaIconoHover= new ImageIcon(App.class.getResource("/imagenes/luzApagadaModifHover.png"));
-	
+	private JuegoGanado juegoGanado=new JuegoGanado();
 	/**
 	 * Launch the application.
 	 */
@@ -98,19 +98,20 @@ public class App {
 		
 	}
 	
-	private void agregarActionListener(JButton boton, int i , int ancho , int alto , int cantidad) {
+	private void agregarActionListener(JButton boton, final int i , int ancho , int alto , int cantidad) {
 		boton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				juego.cambiarLuces(i);
 				verLuces(frmLightsOut );
 				if(juego.isGanador()) {
+					juegoGanado.mostrarse();
 					frmLightsOut.dispose();
 				}
 			}
 		});
 	}
 	
-	private void agregarHoverBotones(JButton boton, int i ) {
+	private void agregarHoverBotones(final JButton boton, final int i ) {
 		boton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {

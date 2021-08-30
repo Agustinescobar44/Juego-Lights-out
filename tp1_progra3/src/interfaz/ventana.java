@@ -16,7 +16,7 @@ import javax.swing.SwingConstants;
 
 public class ventana {
 
-	private JFrame menu;
+	private static JFrame menu;
 	App juego;
 	dificultad dif = new dificultad();
 	/**
@@ -42,7 +42,7 @@ public class ventana {
 		initialize();
 	}
 
-	public int mostrarse() {
+	public static int mostrarse() {
 		menu.setVisible(true);
 		return 0;
 	}
@@ -51,10 +51,10 @@ public class ventana {
 	 */
 	private void initialize() {
 		menu = new JFrame();
-		Dimension tamañoventana = Toolkit.getDefaultToolkit().getScreenSize();
+		Dimension tamanioventana = Toolkit.getDefaultToolkit().getScreenSize();
 		int ancho=450;
 		int alto = 300;
-		menu.setBounds((tamañoventana.width/2)-(ancho/2), (tamañoventana.height/2)-(alto/2), ancho, alto);
+		menu.setBounds((tamanioventana.width/2)-(ancho/2), (tamanioventana.height/2)-(alto/2), ancho, alto);
 		menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		menu.getContentPane().setLayout(null);
 		
@@ -86,7 +86,7 @@ public class ventana {
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dif.mostrarse();
-				menu.dispose();
+				menu.setVisible(false);
 			}
 		});
 		btnNewButton_3.setBounds(163, 110, 89, 23);
