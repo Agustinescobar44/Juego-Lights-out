@@ -36,5 +36,15 @@ class juegoTest {
 		game= new lightsOut(4);
 		assertEquals(2, game.dameVecinos(3).size());
 	}
-
+	@Test 
+	void testCambiarLuces() {
+		game = new lightsOut(4);
+		boolean luz = game.estaPrendida(0);
+		boolean luz2 = game.estaPrendida(1);
+		boolean luz3 = game.estaPrendida(4);
+		game.cambiarLuces(0);
+		assertNotEquals(luz, game.estaPrendida(0));
+		assertNotEquals(luz2, game.estaPrendida(1));
+		assertNotEquals(luz3, game.estaPrendida(4));
+	}
 }
