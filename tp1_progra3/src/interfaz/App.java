@@ -86,6 +86,8 @@ public class App {
 		
 		ArrayList<JButton> botones = new ArrayList<JButton>();
 		
+		main.modificarTurnos(0);
+		
 		for (int j = 0; j < i*i; j++) {
 			JButton temp = new JButton("");
 			temp.setContentAreaFilled(false);
@@ -107,9 +109,14 @@ public class App {
 			public void actionPerformed(ActionEvent e) {
 				juego.cambiarLuces(i);
 				verLuces(frmLightsOut );
+//				ventana.modificarTurnos(ventana.devolverTurnos()+1);
+				main.modificarTurnos(main.devolverTurnos()+1);
+				System.out.println("turnos: " + main.devolverTurnos());
+				System.out.println("record: " + main.devolverRecord());
 				if(juego.isGanador()) {
+//					ventana.modificarRecord(ventana.devolverTurnos());
 					juegoGanado.mostrarse();
-					frmLightsOut.dispose();
+					frmLightsOut.setVisible(false);
 				}
 			}
 		});

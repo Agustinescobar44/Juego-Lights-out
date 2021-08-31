@@ -52,8 +52,7 @@ public class dificultad {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ventana vent=new ventana();
-				vent.mostrarse();
+				ventana.mostrarse();
 				frame.dispose();
 			}
 		});

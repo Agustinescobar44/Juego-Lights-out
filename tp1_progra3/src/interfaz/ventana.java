@@ -14,11 +14,14 @@ import java.awt.Window;
 
 import javax.swing.SwingConstants;
 
+import logica.DatosJuego;
+
 public class ventana {
 
 	private static JFrame menu;
 	App juego;
 	dificultad dif = new dificultad();
+//	 private static DatosJuego data=new DatosJuego();
 	/**
 	 * Launch the application.
 	 */
@@ -26,7 +29,7 @@ public class ventana {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ventana window = new ventana();
+					final ventana window = new ventana();
 					window.menu.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -46,6 +49,22 @@ public class ventana {
 		menu.setVisible(true);
 		return 0;
 	}
+	
+//	final public static void modificarTurnos(int num) {
+//		data.modificarTurnos(num);
+//	}
+//	
+//	final public static int devolverTurnos() {
+//		return data.devolverTurnos();
+//	}
+//	
+//	final public static void modificarRecord(int num) {
+//		data.modificarRecord(num);
+//	}
+//	
+//	final public static int devolverRecord() {
+//		return data.devolverRecord();
+//	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -62,9 +81,10 @@ public class ventana {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dif.mostrarse();
-				menu.dispose();
+				menu.setVisible(false);
 			}
 		});
+		
 		btnNewButton.setBounds(143, 66, 127, 23);
 		menu.getContentPane().add(btnNewButton);
 		
@@ -75,6 +95,11 @@ public class ventana {
 		JButton btnNewButton_2 = new JButton("ranking");
 		btnNewButton_2.setBounds(163, 142, 89, 23);
 		menu.getContentPane().add(btnNewButton_2);
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
 		
 		JLabel lblNewLabel = new JLabel("Lights Out!");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);

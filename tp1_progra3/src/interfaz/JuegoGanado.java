@@ -53,11 +53,14 @@ public class JuegoGanado {
 		lblGanaste.setBounds(182, 34, 70, 15);
 		frame.getContentPane().add(lblGanaste);
 		
-		JLabel lblTurnosUtilizados = new JLabel("Turnos utilizados:");
+		JLabel lblTurnosUtilizados = new JLabel("Turnos utilizados: " + main.devolverTurnos());
 		lblTurnosUtilizados.setBounds(122, 74, 179, 16);
 		frame.getContentPane().add(lblTurnosUtilizados);
 		
-		JLabel textRecord = new JLabel("Record:    turnos.");
+		System.out.println("turnos: " + main.devolverTurnos());
+		System.out.println("record: " + main.devolverRecord());
+		
+		JLabel textRecord = new JLabel("Record: " + main.devolverRecord() +" turnos.");
 		textRecord.setBounds(122, 102, 207, 15);
 		frame.getContentPane().add(textRecord);
 		
