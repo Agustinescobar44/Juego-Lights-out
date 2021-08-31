@@ -78,7 +78,11 @@ public class App {
 		frmLightsOut.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmLightsOut.getContentPane().setLayout(new GridLayout(0, i, 2, 2));
 		
-		escalarImagenes(ancho , alto , i);
+		//escalarImagenes(ancho , alto , i);
+		luzPrendidaIcono = escalarImagen(ancho, alto, i, luzPrendidaIcono);
+		luzApagadaIcono = escalarImagen(ancho, alto, i, luzApagadaIcono);
+		luzApagadaIconoHover =escalarImagen(ancho, alto, i, luzApagadaIconoHover);
+		luzPrendidaIconoHover = escalarImagen(ancho, alto, i, luzPrendidaIconoHover);
 		
 		ArrayList<JButton> botones = new ArrayList<JButton>();
 		
@@ -132,30 +136,21 @@ public class App {
 		});
 	}
 	
-	private void escalarImagenes(int ancho , int alto , int cantidad) {
-				//uso las imageicon como image para poder reescalarlas
-				Image luzprendidaimage = luzPrendidaIcono.getImage();
-				Image luzprendidaimageHover = luzPrendidaIconoHover.getImage();
-				
-				Image luzapagadaImage = luzApagadaIcono.getImage();
-				Image luzapagadaImageHover = luzApagadaIconoHover.getImage();
-				
-				//consigo el ancho y el alto
-				ancho = ancho / cantidad -15;
-				alto = alto / cantidad -15;
-				
-				//reescalo las imagenes basado en el ancho y alto de la pantalla
-				Image luzprendidaCambiada = luzprendidaimage.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
-				Image luzprendidaCambiadaHover = luzprendidaimageHover.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
-				Image luzapagadaCambiada = luzapagadaImage.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
-				Image luzapagadaCambiadaHover = luzapagadaImageHover.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
-				
-				//cambio las variables globales a las escaladas
-				luzPrendidaIcono = new ImageIcon(luzprendidaCambiada);
-				luzPrendidaIconoHover = new ImageIcon(luzprendidaCambiadaHover);
-				luzApagadaIcono = new ImageIcon(luzapagadaCambiada);
-				luzApagadaIconoHover = new ImageIcon(luzapagadaCambiadaHover);
+	private ImageIcon escalarImagen(int ancho , int alto , int cantidad, ImageIcon img) {
+		//consigo el ancho y el alto del escalado
+		ancho = (ancho/cantidad) - 15;
+		alto = (alto/cantidad) - 15;
+		
+		//transgformo la imagenicon a image para escalar
+		Image tempImage = img.getImage();
+		
+		//la escalo
+		Image tempCambiada = tempImage.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
+		
+		//retorno la image como imageicon
+		return (new ImageIcon(tempCambiada));
 	}
+	
 	
 	private void verLuces(JFrame frame) {
 		
