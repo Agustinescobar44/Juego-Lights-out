@@ -50,21 +50,6 @@ public class ventana {
 		return 0;
 	}
 	
-//	final public static void modificarTurnos(int num) {
-//		data.modificarTurnos(num);
-//	}
-//	
-//	final public static int devolverTurnos() {
-//		return data.devolverTurnos();
-//	}
-//	
-//	final public static void modificarRecord(int num) {
-//		data.modificarRecord(num);
-//	}
-//	
-//	final public static int devolverRecord() {
-//		return data.devolverRecord();
-//	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -81,7 +66,7 @@ public class ventana {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dif.mostrarse();
-				menu.setVisible(false);
+				menu.dispose();
 			}
 		});
 		
@@ -89,6 +74,12 @@ public class ventana {
 		menu.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("salir");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				menu.dispose();
+				System.exit(0);
+			}
+		});
 		btnNewButton_1.setBounds(163, 176, 89, 23);
 		menu.getContentPane().add(btnNewButton_1);
 		
@@ -111,7 +102,7 @@ public class ventana {
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dif.mostrarse();
-				menu.setVisible(false);
+				menu.dispose();
 			}
 		});
 		btnNewButton_3.setBounds(163, 110, 89, 23);

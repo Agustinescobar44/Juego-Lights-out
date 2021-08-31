@@ -91,6 +91,7 @@ public class JuegoGanado {
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.dispose();
+				System.exit(0);
 			}
 		});
 		btnSalir.setBounds(144, 207, 145, 25);
