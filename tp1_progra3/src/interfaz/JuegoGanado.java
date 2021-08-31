@@ -7,10 +7,13 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import javax.swing.JProgressBar;
 
 public class JuegoGanado {
 
 	private JFrame frame;
+	ventana vent=new ventana();
 
 	/**
 	 * Launch the application.
@@ -26,6 +29,10 @@ public class JuegoGanado {
 				}
 			}
 		});
+		
+		
+				
+				
 	}
 
 	/**
@@ -53,21 +60,26 @@ public class JuegoGanado {
 		lblGanaste.setBounds(182, 34, 70, 15);
 		frame.getContentPane().add(lblGanaste);
 		
-		JLabel lblTurnosUtilizados = new JLabel("Turnos utilizados: " + main.devolverTurnos());
+		
+		int TurnosUtilizados=main.devolverTurnos();
+		
+		int RecordActual=main.devolverRecord();
+		
+		JLabel lblTurnosUtilizados = new JLabel("Turnos utilizados: " + TurnosUtilizados);
 		lblTurnosUtilizados.setBounds(122, 74, 179, 16);
 		frame.getContentPane().add(lblTurnosUtilizados);
 		
-		System.out.println("turnos: " + main.devolverTurnos());
-		System.out.println("record: " + main.devolverRecord());
 		
-		JLabel textRecord = new JLabel("Record: " + main.devolverRecord() +" turnos.");
+		
+		JLabel textRecord = new JLabel("Record: " + RecordActual +" turnos.");
 		textRecord.setBounds(122, 102, 207, 15);
 		frame.getContentPane().add(textRecord);
+		
 		
 		JButton btnVolverAlMenu = new JButton("Volver al menu");
 		btnVolverAlMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ventana.mostrarse();
+				vent.mostrarse();
 				frame.dispose();
 				
 			}
@@ -83,5 +95,6 @@ public class JuegoGanado {
 		});
 		btnSalir.setBounds(144, 207, 145, 25);
 		frame.getContentPane().add(btnSalir);
+		
 	}
 }

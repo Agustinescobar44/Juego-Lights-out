@@ -53,7 +53,7 @@ public class dificultad {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ventana.mostrarse();
-				frame.dispose();
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton.addActionListener(new ActionListener() {
@@ -94,6 +94,6 @@ public class dificultad {
 	private void iniciarJuego(int i) {
 		juego = new App(i);
 		juego.mostrarse();
-		frame.dispose();
+		frame.setVisible(false);
 	}
 }

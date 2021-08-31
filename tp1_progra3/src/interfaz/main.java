@@ -5,7 +5,7 @@ import logica.lightsOut;
 
 public class main {
 	
-	private static DatosJuego data=new DatosJuego();
+	final private static DatosJuego data=new DatosJuego();
 	
 	final public static void modificarTurnos(int num) {
 		data.modificarTurnos(num);
