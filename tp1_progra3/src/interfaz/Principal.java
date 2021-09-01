@@ -3,7 +3,7 @@ package interfaz;
 import logica.DatosJuego;
 import logica.lightsOut;
 
-public class main {
+public class Principal {
 	
 	final private static DatosJuego data=new DatosJuego();
 	
