@@ -27,6 +27,10 @@ public class App {
 
 	private JFrame frmLightsOut;
 	private lightsOut juego;
+	
+	
+	
+	//imagenes
 	private ImageIcon luzPrendidaIcono=  new ImageIcon(App.class.getResource("/imagenes/luzPrendidaModif.png"));
 	private ImageIcon luzPrendidaIconoHover=  new ImageIcon(App.class.getResource("/imagenes/luzPrendidaModifHover.png"));
 	private ImageIcon luzApagadaIcono= new ImageIcon(App.class.getResource("/imagenes/luzApagadaModif.png"));
