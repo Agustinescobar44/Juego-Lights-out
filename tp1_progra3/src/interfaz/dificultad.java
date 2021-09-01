@@ -1,6 +1,8 @@
 package interfaz;
 
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
@@ -44,7 +46,12 @@ public class dificultad {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 285, 250);
+		Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+		int ancho = 450;
+		int alto = 300;
+		int x = (pantalla.width/2) - (ancho/2);
+		int y = (pantalla.height/2) - (alto/2);
+		frame.setBounds(x, y, ancho, alto);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -60,7 +67,7 @@ public class dificultad {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(59, 177, 159, 23);
+		btnNewButton.setBounds(125, 190, 159, 23);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton facil = new JButton("Facil");
@@ -69,7 +76,7 @@ public class dificultad {
 				iniciarJuego(3);
 			}
 		});
-		facil.setBounds(91, 23, 89, 23);
+		facil.setBounds(157, 36, 89, 23);
 		frame.getContentPane().add(facil);
 		
 		JButton normal = new JButton("Normal");
@@ -78,7 +85,7 @@ public class dificultad {
 				iniciarJuego(4);
 			}
 		});
-		normal.setBounds(91, 71, 89, 23);
+		normal.setBounds(157, 84, 89, 23);
 		frame.getContentPane().add(normal);
 		
 		JButton dificil = new JButton("Dificil");
@@ -87,7 +94,7 @@ public class dificultad {
 				iniciarJuego(5);
 			}
 		});
-		dificil.setBounds(91, 121, 89, 23);
+		dificil.setBounds(157, 134, 89, 23);
 		frame.getContentPane().add(dificil);
 	}
 	
