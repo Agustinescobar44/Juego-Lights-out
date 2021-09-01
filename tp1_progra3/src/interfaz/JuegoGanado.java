@@ -61,9 +61,9 @@ public class JuegoGanado {
 		frame.getContentPane().add(lblGanaste);
 		
 		
-		int TurnosUtilizados=main.devolverTurnos();
+		int TurnosUtilizados=Principal.devolverTurnos();
 		
-		int RecordActual=main.devolverRecord();
+		int RecordActual=Principal.devolverRecord();
 		
 		JLabel lblTurnosUtilizados = new JLabel("Turnos utilizados: " + TurnosUtilizados);
 		lblTurnosUtilizados.setBounds(122, 74, 179, 16);

@@ -89,7 +89,7 @@ public class App {
 		
 		ArrayList<JButton> botones = new ArrayList<JButton>();
 		
-		main.modificarTurnos(0);
+		Principal.modificarTurnos(0);
 		
 		for (int j = 0; j < i*i; j++) {
 			JButton temp = new JButton("");
@@ -112,10 +112,10 @@ public class App {
 			public void actionPerformed(ActionEvent e) {
 				juego.cambiarLuces(i);
 				verLuces(frmLightsOut );
-				main.modificarTurnos(main.devolverTurnos()+1);
+				Principal.modificarTurnos(Principal.devolverTurnos()+1);
 				if(juego.isGanador()) {
-					main.modificarRecord(main.devolverTurnos());
-					final int TurnosUtilizados=main.devolverTurnos();
+					Principal.modificarRecord(Principal.devolverTurnos());
+					final int TurnosUtilizados=Principal.devolverTurnos();
 					JuegoGanado juegoGanado=new JuegoGanado();
 					juegoGanado.mostrarse();
 					frmLightsOut.dispose();
