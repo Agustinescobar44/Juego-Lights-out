@@ -15,11 +15,7 @@ import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import java.awt.Toolkit;
-import java.awt.Window;
-
 import javax.swing.SwingConstants;
-
-import logica.DatosJuego;
 
 public class ventana {
 
@@ -162,7 +158,7 @@ public class ventana {
 		interfazdificultad.add(normal);
 		interfazdificultad.add(volver);
 		
-		//se empieza con el menu mostrado
+		//se empieza con el menu mostrado y la dificultad ocultada
 		ocultarBotones(interfazdificultad);
 		
 		JLabel titulo = new JLabel("Lights Out!");
