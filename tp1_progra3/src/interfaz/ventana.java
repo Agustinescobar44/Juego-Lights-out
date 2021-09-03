@@ -57,7 +57,10 @@ public class ventana {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		ArrayList<JButton> interfazMenú = new ArrayList<>();
 		menu = new JFrame();
+		
+		//acomodado de la ventana
 		Dimension tamanioventana = Toolkit.getDefaultToolkit().getScreenSize();
 		int ancho=450;
 		int alto = 300;
@@ -65,31 +68,31 @@ public class ventana {
 		menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		menu.getContentPane().setLayout(null);
 		
-		JButton btnNewButton = new JButton("nuevo juego");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton nuevoJuego = new JButton("nuevo juego");
+		nuevoJuego.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dif.mostrarse();
 				menu.dispose();
 			}
 		});
 		
-		btnNewButton.setBounds(143, 66, 127, 23);
-		menu.getContentPane().add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("salir");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		nuevoJuego.setBounds(143, 66, 127, 23);
+		menu.getContentPane().add(nuevoJuego);
+
+		JButton salir = new JButton("salir");
+		salir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				menu.dispose();
 				System.exit(0);
 			}
 		});
-		btnNewButton_1.setBounds(163, 176, 89, 23);
-		menu.getContentPane().add(btnNewButton_1);
+		salir.setBounds(163, 176, 89, 23);
+		menu.getContentPane().add(salir);
 		
-		JButton btnNewButton_2 = new JButton("ranking");
-		btnNewButton_2.setBounds(163, 142, 89, 23);
-		menu.getContentPane().add(btnNewButton_2);
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton ranking = new JButton("ranking");
+		ranking.setBounds(163, 142, 89, 23);
+		menu.getContentPane().add(ranking);
+		ranking.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane muestraRanking = new JOptionPane();
 				ArrayList<Integer> rankingActual=Principal.devolverRanking();
@@ -98,11 +101,13 @@ public class ventana {
 			}
 		});
 		
-		JLabel lblNewLabel = new JLabel("Lights Out!");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel.setBounds(106, 11, 204, 44);
-		menu.getContentPane().add(lblNewLabel);
+		JLabel titulo = new JLabel("Lights Out!");
+		titulo.setHorizontalAlignment(SwingConstants.CENTER);
+		titulo.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		titulo.setBounds(106, 11, 204, 44);
+		menu.getContentPane().add(titulo);
+		
+		
 		
 
 	}
