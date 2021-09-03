@@ -6,6 +6,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
@@ -58,6 +60,7 @@ public class ventana {
 	 */
 	private void initialize() {
 		ArrayList<JButton> interfazMenu = new ArrayList<>();
+		ArrayList<JButton> interfazdificultad = new ArrayList<>();
 		menu = new JFrame();
 		
 		//acomodado de la ventana
@@ -76,14 +79,15 @@ public class ventana {
 				/*dif.mostrarse();
 				menu.dispose();*/
 				ocultarBotones(interfazMenu);
+				mostrarBotones(interfazdificultad);
 			}
 		});
-		nuevoJuego.setBounds(143, 66, 127, 23);
+		nuevoJuego.setBounds(142, 83, 127, 23);
 		menu.getContentPane().add(nuevoJuego);
 
 		
 		JButton ranking = new JButton("ranking");
-		ranking.setBounds(163, 142, 89, 23);
+		ranking.setBounds(162, 159, 89, 23);
 		menu.getContentPane().add(ranking);
 		ranking.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -101,12 +105,59 @@ public class ventana {
 				System.exit(0);
 			}
 		});
-		salir.setBounds(163, 176, 89, 23);
+		salir.setBounds(162, 193, 89, 23);
 		menu.getContentPane().add(salir);
+		
+		JButton volver = new JButton("volver");
+		volver.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				/*ventana.mostrarse();
+				frame.dispose();*/
+				ocultarBotones(interfazdificultad);
+				mostrarBotones(interfazMenu);
+			}
+		});
+		volver.setBounds(128, 227, 159, 23);
+		menu.getContentPane().add(volver);
+		
+		JButton facil = new JButton("Facil");
+		facil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				iniciarJuego(3);
+			}
+		});
+		facil.setBounds(160, 73, 89, 23);
+		menu.getContentPane().add(facil);
+		
+		JButton normal = new JButton("Normal");
+		normal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				iniciarJuego(4);
+			}
+		});
+		normal.setBounds(160, 121, 89, 23);
+		menu.getContentPane().add(normal);
+		
+		JButton dificil = new JButton("Dificil");
+		dificil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				iniciarJuego(5);
+			}
+		});
+		dificil.setBounds(160, 171, 89, 23);
+		menu.getContentPane().add(dificil);
 		
 		interfazMenu.add(nuevoJuego);
 		interfazMenu.add(ranking);
 		interfazMenu.add(salir);
+		
+		interfazdificultad.add(dificil);
+		interfazdificultad.add(facil);
+		interfazdificultad.add(normal);
+		interfazdificultad.add(volver);
+		
+		ocultarBotones(interfazdificultad);
 		
 		JLabel titulo = new JLabel("Lights Out!");
 		titulo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -125,6 +176,12 @@ public class ventana {
 		for (JButton boton : botones) {
 			boton.setVisible(true);
 		}
+	}
+	
+	private void iniciarJuego(int i) {
+		juego = new App(i);
+		juego.mostrarse();
+		menu.dispose();
 	}
 	
 }
