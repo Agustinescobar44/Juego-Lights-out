@@ -104,14 +104,6 @@ public class ventana {
 		lblNewLabel.setBounds(106, 11, 204, 44);
 		menu.getContentPane().add(lblNewLabel);
 		
-		JButton btnNewButton_3 = new JButton("dificultad");
-		btnNewButton_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dif.mostrarse();
-				menu.dispose();
-			}
-		});
-		btnNewButton_3.setBounds(163, 110, 89, 23);
-		menu.getContentPane().add(btnNewButton_3);
+
 	}
 }
