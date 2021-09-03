@@ -62,6 +62,7 @@ public class ventana {
 		ArrayList<JButton> interfazMenu = new ArrayList<>();
 		ArrayList<JButton> interfazdificultad = new ArrayList<>();
 		menu = new JFrame();
+		menu.setIconImage(Toolkit.getDefaultToolkit().getImage(ventana.class.getResource("/imagenes/icono_lights_out.png")));
 		
 		//acomodado de la ventana
 		Dimension tamanioventana = Toolkit.getDefaultToolkit().getScreenSize();
@@ -71,7 +72,7 @@ public class ventana {
 		menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		menu.getContentPane().setLayout(null);
 		
-		// botones de menu
+		// botones de menu-----------------------------------
 		
 		JButton nuevoJuego = new JButton("nuevo juego");
 		nuevoJuego.addActionListener(new ActionListener() {
@@ -105,10 +106,10 @@ public class ventana {
 				System.exit(0);
 			}
 		});
-		salir.setBounds(162, 193, 89, 23);
+		salir.setBounds(128, 227, 159, 23);
 		menu.getContentPane().add(salir);
 		
-		//botones de dificultad
+		//botones de dificultad-------------------------------
 		
 		JButton volver = new JButton("volver");
 		volver.addMouseListener(new MouseAdapter() {
@@ -161,6 +162,7 @@ public class ventana {
 		interfazdificultad.add(normal);
 		interfazdificultad.add(volver);
 		
+		//se empieza con el menu mostrado
 		ocultarBotones(interfazdificultad);
 		
 		JLabel titulo = new JLabel("Lights Out!");
