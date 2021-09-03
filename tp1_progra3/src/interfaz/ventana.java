@@ -57,7 +57,7 @@ public class ventana {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		ArrayList<JButton> interfazMenú = new ArrayList<>();
+		ArrayList<JButton> interfazMenu = new ArrayList<>();
 		menu = new JFrame();
 		
 		//acomodado de la ventana
@@ -68,26 +68,19 @@ public class ventana {
 		menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		menu.getContentPane().setLayout(null);
 		
+		// botones
+		
 		JButton nuevoJuego = new JButton("nuevo juego");
 		nuevoJuego.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dif.mostrarse();
-				menu.dispose();
+				/*dif.mostrarse();
+				menu.dispose();*/
+				ocultarBotones(interfazMenu);
 			}
 		});
-		
 		nuevoJuego.setBounds(143, 66, 127, 23);
 		menu.getContentPane().add(nuevoJuego);
 
-		JButton salir = new JButton("salir");
-		salir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				menu.dispose();
-				System.exit(0);
-			}
-		});
-		salir.setBounds(163, 176, 89, 23);
-		menu.getContentPane().add(salir);
 		
 		JButton ranking = new JButton("ranking");
 		ranking.setBounds(163, 142, 89, 23);
@@ -101,14 +94,37 @@ public class ventana {
 			}
 		});
 		
+		JButton salir = new JButton("salir");
+		salir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				menu.dispose();
+				System.exit(0);
+			}
+		});
+		salir.setBounds(163, 176, 89, 23);
+		menu.getContentPane().add(salir);
+		
+		interfazMenu.add(nuevoJuego);
+		interfazMenu.add(ranking);
+		interfazMenu.add(salir);
+		
 		JLabel titulo = new JLabel("Lights Out!");
 		titulo.setHorizontalAlignment(SwingConstants.CENTER);
 		titulo.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		titulo.setBounds(106, 11, 204, 44);
 		menu.getContentPane().add(titulo);
-		
-		
-		
 
 	}
+	
+	private void ocultarBotones (ArrayList<JButton> botones) {
+		for (JButton boton : botones) {
+			boton.setVisible(false);
+		}
+	}
+	private void mostrarBotones (ArrayList<JButton> botones) {
+		for (JButton boton : botones) {
+			boton.setVisible(true);
+		}
+	}
+	
 }
