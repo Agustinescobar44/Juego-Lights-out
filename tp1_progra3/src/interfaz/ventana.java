@@ -6,8 +6,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.Window;
@@ -88,7 +91,10 @@ public class ventana {
 		menu.getContentPane().add(btnNewButton_2);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				JOptionPane muestraRanking = new JOptionPane();
+				ArrayList<Integer> rankingActual=Principal.devolverRanking();
+				//falta agregar ranking a la ventana de dialogo
+				muestraRanking.showMessageDialog(menu, "Ranking: \nPrimer Puesto: " + Principal.devolverRecord() + "\n Segundo Puesto: ");
 			}
 		});
 		
