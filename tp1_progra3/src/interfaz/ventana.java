@@ -71,7 +71,7 @@ public class ventana {
 		menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		menu.getContentPane().setLayout(null);
 		
-		// botones
+		// botones de menu
 		
 		JButton nuevoJuego = new JButton("nuevo juego");
 		nuevoJuego.addActionListener(new ActionListener() {
@@ -107,6 +107,8 @@ public class ventana {
 		});
 		salir.setBounds(162, 193, 89, 23);
 		menu.getContentPane().add(salir);
+		
+		//botones de dificultad
 		
 		JButton volver = new JButton("volver");
 		volver.addMouseListener(new MouseAdapter() {
@@ -147,6 +149,8 @@ public class ventana {
 		});
 		dificil.setBounds(160, 171, 89, 23);
 		menu.getContentPane().add(dificil);
+		
+		//agrego los botones a una lista para poder mostrarlos y ocultarlos 
 		
 		interfazMenu.add(nuevoJuego);
 		interfazMenu.add(ranking);
