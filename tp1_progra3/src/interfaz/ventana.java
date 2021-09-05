@@ -21,7 +21,6 @@ public class ventana {
 
 	private static JFrame menu;
 	App juego;
-	dificultad dif = new dificultad();
 //	 private static DatosJuego data=new DatosJuego();
 	/**
 	 * Launch the application.
