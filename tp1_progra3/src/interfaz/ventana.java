@@ -55,8 +55,8 @@ public class ventana {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		ArrayList<JButton> interfazMenu = new ArrayList<>();
-		ArrayList<JButton> interfazdificultad = new ArrayList<>();
+		final ArrayList<JButton> interfazMenu = new ArrayList<JButton>();
+		final ArrayList<JButton> interfazdificultad = new ArrayList<JButton>();
 		menu = new JFrame();
 		menu.setIconImage(Toolkit.getDefaultToolkit().getImage(ventana.class.getResource("/imagenes/icono_lights_out.png")));
 		
@@ -90,8 +90,14 @@ public class ventana {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane muestraRanking = new JOptionPane();
 				ArrayList<Integer> rankingActual=Principal.devolverRanking();
-				//falta agregar ranking a la ventana de dialogo
-				muestraRanking.showMessageDialog(menu, "Ranking: \nPrimer Puesto: " + Principal.devolverRecord() + "\n Segundo Puesto: ");
+				Integer primerPuesto=(rankingActual.size()>=1)?rankingActual.get(0):0;
+				Integer segundoPuesto=(rankingActual.size()>=2)?rankingActual.get(1):0;
+				Integer tercerPuesto=(rankingActual.size()>=3)?rankingActual.get(2):0;
+				Integer cuartoPuesto=(rankingActual.size()>=4)?rankingActual.get(3):0;
+				muestraRanking.showMessageDialog(menu, "Ranking: \nPrimer Puesto: " + primerPuesto +" Turnos"
+						+ "\nSegundo Puesto: " + segundoPuesto + " Turnos"
+						+ "\nTercer Puesto: " + tercerPuesto + " Turnos"
+						+ "\nCuarto Puesto: " + cuartoPuesto + " Turnos");
 			}
 		});
 		

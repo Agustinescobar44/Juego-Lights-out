@@ -1,6 +1,7 @@
 package logica;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class DatosJuego {
 	private int turnos=0;
@@ -12,8 +13,9 @@ public class DatosJuego {
 		if( num<this.record) {
 			this.record=num;
 		}
+		
 		if (!ranking.contains(num)) {
-			ranking.add(num);
+			this.agregarEnRanking(num);
 		}
 	}
 	
@@ -29,9 +31,11 @@ public class DatosJuego {
 		return this.turnos;
 	}
 	
-	public void agregarEnRanking() {
-		//falta definir funcion
-	}
+	public void agregarEnRanking(Integer num) {
+		this.ranking.add(num);
+		Collections.sort(this.ranking);
+		
+		}
 	
 	public ArrayList<Integer> devolverRanking(){
 		return this.ranking;
