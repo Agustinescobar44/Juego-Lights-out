@@ -16,6 +16,8 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import java.awt.Toolkit;
 import javax.swing.SwingConstants;
+import java.awt.Cursor;
+import javax.swing.ImageIcon;
 
 public class ventana {
 
@@ -57,6 +59,7 @@ public class ventana {
 		final ArrayList<JButton> interfazMenu = new ArrayList<JButton>();
 		final ArrayList<JButton> interfazdificultad = new ArrayList<JButton>();
 		menu = new JFrame();
+		menu.setResizable(false);
 		menu.setIconImage(Toolkit.getDefaultToolkit().getImage(ventana.class.getResource("/imagenes/icono_lights_out.png")));
 		
 		//acomodado de la ventana
@@ -70,6 +73,9 @@ public class ventana {
 		// botones de menu-----------------------------------
 		
 		JButton nuevoJuego = new JButton("nuevo juego");
+		nuevoJuego.setFocusable(false);
+		nuevoJuego.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		nuevoJuego.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
 		nuevoJuego.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ocultarBotones(interfazMenu);
@@ -81,6 +87,9 @@ public class ventana {
 
 		
 		JButton ranking = new JButton("ranking");
+		ranking.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		ranking.setFocusable(false);
+		ranking.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
 		ranking.setBounds(162, 159, 89, 23);
 		menu.getContentPane().add(ranking);
 		ranking.addActionListener(new ActionListener() {
@@ -99,6 +108,9 @@ public class ventana {
 		});
 		
 		JButton salir = new JButton("salir");
+		salir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		salir.setFocusable(false);
+		salir.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
 		salir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				menu.dispose();
@@ -111,6 +123,9 @@ public class ventana {
 		//botones de dificultad-------------------------------
 		
 		JButton volver = new JButton("volver");
+		volver.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		volver.setFocusable(false);
+		volver.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
 		volver.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -122,6 +137,9 @@ public class ventana {
 		menu.getContentPane().add(volver);
 		
 		JButton facil = new JButton("Facil");
+		facil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		facil.setFocusable(false);
+		facil.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
 		facil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				iniciarJuego(3);
@@ -131,6 +149,9 @@ public class ventana {
 		menu.getContentPane().add(facil);
 		
 		JButton normal = new JButton("Normal");
+		normal.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		normal.setFocusable(false);
+		normal.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
 		normal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				iniciarJuego(4);
@@ -140,6 +161,9 @@ public class ventana {
 		menu.getContentPane().add(normal);
 		
 		JButton dificil = new JButton("Dificil");
+		dificil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		dificil.setFocusable(false);
+		dificil.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
 		dificil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				iniciarJuego(5);
@@ -164,9 +188,14 @@ public class ventana {
 		
 		JLabel titulo = new JLabel("Lights Out!");
 		titulo.setHorizontalAlignment(SwingConstants.CENTER);
-		titulo.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		titulo.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 25));
 		titulo.setBounds(106, 11, 204, 44);
 		menu.getContentPane().add(titulo);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\agust\\OneDrive\\Im\u00E1genes\\respuestas\\ree.png"));
+		lblNewLabel.setBounds(0, 0, 444, 271);
+		menu.getContentPane().add(lblNewLabel);
 
 	}
 	
@@ -186,5 +215,4 @@ public class ventana {
 		juego.mostrarse();
 		menu.dispose();
 	}
-	
 }
