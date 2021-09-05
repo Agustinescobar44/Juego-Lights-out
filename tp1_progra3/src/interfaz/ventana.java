@@ -73,8 +73,6 @@ public class ventana {
 		JButton nuevoJuego = new JButton("nuevo juego");
 		nuevoJuego.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				/*dif.mostrarse();
-				menu.dispose();*/
 				ocultarBotones(interfazMenu);
 				mostrarBotones(interfazdificultad);
 			}
@@ -117,8 +115,6 @@ public class ventana {
 		volver.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				/*ventana.mostrarse();
-				frame.dispose();*/
 				ocultarBotones(interfazdificultad);
 				mostrarBotones(interfazMenu);
 			}
