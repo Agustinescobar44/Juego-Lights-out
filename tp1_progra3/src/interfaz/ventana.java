@@ -17,7 +17,6 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import javax.swing.SwingConstants;
 import java.awt.Cursor;
-import javax.swing.ImageIcon;
 
 public class ventana {
 
@@ -63,13 +62,14 @@ public class ventana {
 		menu.setIconImage(Toolkit.getDefaultToolkit().getImage(ventana.class.getResource("/imagenes/icono_lights_out.png")));
 		
 		//acomodado de la ventana
-		Dimension tamanioventana = Toolkit.getDefaultToolkit().getScreenSize();
+		
 		int ancho=450;
 		int alto = 300;
-		menu.setBounds((tamanioventana.width/2)-(ancho/2), (tamanioventana.height/2)-(alto/2), ancho, alto);
+		
+		centrarVentana(ancho, alto, menu);
+		
 		menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		menu.getContentPane().setLayout(null);
-		
 		// botones de menu-----------------------------------
 		
 		JButton nuevoJuego = new JButton("nuevo juego");
@@ -210,5 +210,10 @@ public class ventana {
 		juego = new App(i);
 		juego.mostrarse();
 		menu.dispose();
+	}
+	
+	public void centrarVentana(int ancho , int alto , JFrame frame) {
+		Dimension tamanioventana = Toolkit.getDefaultToolkit().getScreenSize();
+		frame.setBounds((tamanioventana.width/2)-(ancho/2), (tamanioventana.height/2)-(alto/2), ancho, alto);
 	}
 }

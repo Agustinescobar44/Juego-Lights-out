@@ -1,14 +1,14 @@
 package interfaz;
 
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
-import javax.swing.JProgressBar;
 
 public class JuegoGanado {
 
@@ -52,7 +52,9 @@ public class JuegoGanado {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		int ancho  = 450;
+		int alto = 300;
+		centrarVentana(ancho, alto, frame);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -97,5 +99,9 @@ public class JuegoGanado {
 		btnSalir.setBounds(144, 207, 145, 25);
 		frame.getContentPane().add(btnSalir);
 		
+	}
+	public void centrarVentana(int ancho , int alto , JFrame frame) {
+		Dimension tamanioventana = Toolkit.getDefaultToolkit().getScreenSize();
+		frame.setBounds((tamanioventana.width/2)-(ancho/2), (tamanioventana.height/2)-(alto/2), ancho, alto);
 	}
 }
