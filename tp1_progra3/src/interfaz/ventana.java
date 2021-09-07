@@ -192,10 +192,6 @@ public class ventana {
 		titulo.setBounds(106, 11, 204, 44);
 		menu.getContentPane().add(titulo);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\agust\\OneDrive\\Im\u00E1genes\\respuestas\\ree.png"));
-		lblNewLabel.setBounds(0, 0, 444, 271);
-		menu.getContentPane().add(lblNewLabel);
 
 	}
 	
