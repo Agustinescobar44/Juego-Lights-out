@@ -59,6 +59,12 @@ public class App {
 		initialize(i);
 	}
 
+    public App(int i,int j) {
+		juego=new lightsOut(i,j);
+		initialize(i);
+
+	}
+
 	public void mostrarse() {
 		frmLightsOut.setVisible(true);
 	}
@@ -114,11 +120,14 @@ public class App {
 				verLuces(frmLightsOut );
 				Principal.modificarTurnos(Principal.devolverTurnos()+1);
 				if(juego.isGanador()) {
-					Principal.modificarRecord(Principal.devolverTurnos());
 					final int TurnosUtilizados=Principal.devolverTurnos();
+					if(!Principal.esTableroArmado()) {
+						Principal.modificarRecord(Principal.devolverTurnos());
+					}
 					JuegoGanado juegoGanado=new JuegoGanado();
 					juegoGanado.mostrarse();
 					frmLightsOut.dispose();
+					
 				}
 			}
 		});

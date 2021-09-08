@@ -18,6 +18,22 @@ public class lightsOut{
 		}
 		setearVecinos(i);
 	}
+
+    public lightsOut(int i, int j) {
+		mapa = new Grafo(i*i);
+		luces = new Boolean[i*i];
+		for (int k = 0; k <i*i; k++) {
+			luces[k] = false;
+		}
+		luces[0]=true;
+		luces[1]=true;
+		luces[3]=true;
+		setearVecinos(i);
+		for(int k=1;k<j;k++) {
+			int indiceRandom=(int) (Math.random()*(luces.length-1));
+			this.cambiarLuces(indiceRandom);
+		}
+	}
 	 
 	private void setearVecinos(int columnas ) { 
 		for (int i = 0; i < mapa.tamanio(); i++) {

@@ -6,6 +6,8 @@ import logica.DatosJuego;
 import logica.lightsOut;
 
 public class Principal {
+
+    private static boolean tableroArmado=false;
 	
 	final private static DatosJuego data=new DatosJuego();
 	
@@ -29,9 +31,15 @@ public class Principal {
 		return data.devolverRanking();
 	}
 
+    final public static boolean esTableroArmado() {
+		return tableroArmado;
+	}
+
 	public static void main(String[] args) {
 		ventana menu = new ventana();
-		menu.mostrarse();		
+		menu.mostrarse();	
+		App juego=new App(3,2);
+		juego.mostrarse();
 	}
 
 }
