@@ -34,6 +34,10 @@ public class Principal {
     final public static boolean esTableroArmado() {
 		return tableroArmado;
 	}
+   
+    final public static void tableroArmado(boolean i) {
+    	tableroArmado=i;
+    }
 
 	public static void main(String[] args) {
 		ventana menu = new ventana();

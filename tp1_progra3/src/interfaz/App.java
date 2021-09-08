@@ -60,6 +60,7 @@ public class App {
 	}
 
     public App(int i,int j) {
+    	Principal.tableroArmado(true);
 		juego=new lightsOut(i,j);
 		initialize(i);
 
@@ -124,6 +125,7 @@ public class App {
 					if(!Principal.esTableroArmado()) {
 						Principal.modificarRecord(Principal.devolverTurnos());
 					}
+					Principal.tableroArmado(false);
 					JuegoGanado juegoGanado=new JuegoGanado();
 					juegoGanado.mostrarse();
 					frmLightsOut.dispose();
