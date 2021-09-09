@@ -227,7 +227,12 @@ public class ventana {
 		JButton comenzarPerso = new JButton("Comenzar");
 		comenzarPerso.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				iniciarJuego(4, Integer.parseInt(cantidadDeTurnos.getText()));
+				try {
+					iniciarJuego(4, Integer.parseInt(cantidadDeTurnos.getText()));
+				} catch (Exception e2) {
+					JOptionPane exception = new JOptionPane();
+					exception.showMessageDialog(menu, "Solo se admiten numeros!");
+				}
 			}
 		});
 		comenzarPerso.setBounds(151, 176, 120, 23);
