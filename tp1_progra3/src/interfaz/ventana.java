@@ -61,8 +61,8 @@ public class ventana {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		final ArrayList<JButton> interfazMenu = new ArrayList<JButton>();
-		final ArrayList<JButton> interfazdificultad = new ArrayList<JButton>();
+		final ArrayList<JComponent> interfazMenu = new ArrayList<JComponent>();
+		final ArrayList<JComponent> interfazdificultad = new ArrayList<JComponent>();
 		final ArrayList<JComponent> interfazPersonalizado = new ArrayList<>();
 		menu = new JFrame();
 		menu.setResizable(false);
@@ -85,8 +85,8 @@ public class ventana {
 		nuevoJuego.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
 		nuevoJuego.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ocultarBotones(interfazMenu);
-				mostrarBotones(interfazdificultad);
+				ocultarUI(interfazMenu);
+				mostrarUI(interfazdificultad);
 			}
 		});
 
@@ -100,7 +100,7 @@ public class ventana {
 		personalizado.setBounds(0, 120, 150, 33);
 		personalizado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ocultarBotones(interfazMenu);
+				ocultarUI(interfazMenu);
 				mostrarUI(interfazPersonalizado);
 			}
 		});
@@ -151,9 +151,9 @@ public class ventana {
 		volver.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ocultarBotones(interfazdificultad);
+				ocultarUI(interfazdificultad);
 				ocultarUI(interfazPersonalizado);
-				mostrarBotones(interfazMenu);
+				mostrarUI(interfazMenu);
 			}
 		});
 		volver.setBounds(0, 227, 150, 23);
@@ -235,7 +235,7 @@ public class ventana {
 		centrarBotones(interfazdificultad, anchoFrame);
 		
 		//se empieza con el menu mostrado y la dificultad ocultada
-		ocultarBotones(interfazdificultad);
+		ocultarUI(interfazdificultad);
 		ocultarUI(interfazPersonalizado);
 		
 		JLabel titulo = new JLabel("Lights Out!");
@@ -248,11 +248,6 @@ public class ventana {
 
 	}
 	
-	private void ocultarBotones (ArrayList<JButton> botones) {
-		for (JButton boton : botones) {
-			boton.setVisible(false);
-		}
-	}
 	private void ocultarUI(ArrayList<JComponent> component) {
 		for (JComponent jComponent : component) {
 			jComponent.setVisible(false);
@@ -260,16 +255,10 @@ public class ventana {
 	}
 	private void mostrarUI(ArrayList<JComponent> component) {
 		for (JComponent jComponent : component) {
-			System.out.println("a");
 			jComponent.setVisible(true);
 		}
 	}
-	private void mostrarBotones (ArrayList<JButton> botones) {
-		for (JButton boton : botones) {
-			boton.setVisible(true);
-		}
-	}
-	
+
 	private void iniciarJuego(int i) {
 		juego = new App(i);
 		juego.mostrarse();
@@ -283,8 +272,8 @@ public class ventana {
 	private int conseguirxCentro(int ancho,int anchoComponente) {
 		return ((ancho/2)-(anchoComponente/2+10));
 	}
-	private void centrarBotones(ArrayList<JButton> botones,int ancho) {
-		for (JButton boton : botones) {
+	private void centrarBotones(ArrayList<JComponent> botones,int ancho) {
+		for (JComponent boton : botones) {
 			int anchoBoton = boton.getWidth();
 			int altura= boton.getY();
 			boton.setLocation(conseguirxCentro(ancho, anchoBoton), altura);
