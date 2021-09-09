@@ -198,7 +198,7 @@ public class ventana {
 		
 		//interfaz de juego personalizado----------------------------------------------
 		cantidadDeTurnos = new JTextField();
-		cantidadDeTurnos.setBounds(167, 176, 86, 20);
+		cantidadDeTurnos.setBounds(223, 145, 86, 20);
 		menu.getContentPane().add(cantidadDeTurnos);
 		cantidadDeTurnos.setColumns(10);
 		
@@ -206,37 +206,17 @@ public class ventana {
 		labelCantidadTurnos.setLabelFor(cantidadDeTurnos);
 		labelCantidadTurnos.setHorizontalAlignment(SwingConstants.CENTER);
 		labelCantidadTurnos.setHorizontalTextPosition(SwingConstants.CENTER);
-		labelCantidadTurnos.setBounds(129, 158, 160, 14);
+		labelCantidadTurnos.setBounds(68, 148, 160, 14);
 		menu.getContentPane().add(labelCantidadTurnos);
 		
 		JLabel tutorialPersonalizado = new JLabel("<html>En el modo de juego personalizado ingresas la cantidad de turnos maxima para que se resuelva el juego</html>");
 		tutorialPersonalizado.setHorizontalTextPosition(SwingConstants.CENTER);
 		tutorialPersonalizado.setHorizontalAlignment(SwingConstants.TRAILING);
-		tutorialPersonalizado.setBounds(100, 63, 269, 102);
+		tutorialPersonalizado.setBounds(100, 47, 269, 102);
 		menu.getContentPane().add(tutorialPersonalizado);
 		
-		interfazPersonalizado.add(tutorialPersonalizado);
-		interfazPersonalizado.add(cantidadDeTurnos);
-		interfazPersonalizado.add(labelCantidadTurnos);
-		interfazPersonalizado.add(volver);
-		//agrego los botones a una lista para poder mostrarlos y ocultarlos 
 		
-		interfazMenu.add(nuevoJuego);
-		interfazMenu.add(ranking);
-		interfazMenu.add(salir);
-		interfazMenu.add(personalizado);
 		
-		interfazdificultad.add(dificil);
-		interfazdificultad.add(facil);
-		interfazdificultad.add(normal);
-		interfazdificultad.add(volver);
-		
-		centrarBotones(interfazMenu, anchoFrame);
-		centrarBotones(interfazdificultad, anchoFrame);
-		
-		//se empieza con el menu mostrado y la dificultad ocultada
-		ocultarUI(interfazdificultad);
-		ocultarUI(interfazPersonalizado);
 		
 		JLabel titulo = new JLabel("Lights Out!");
 		titulo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -244,8 +224,40 @@ public class ventana {
 		titulo.setBounds(conseguirxCentro(anchoFrame, 200), 11, 200, 44);
 		menu.getContentPane().add(titulo);
 		
+		JButton comenzarPerso = new JButton("Comenzar");
+		comenzarPerso.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				iniciarJuego(4, Integer.parseInt(cantidadDeTurnos.getText()));
+			}
+		});
+		comenzarPerso.setBounds(151, 176, 120, 23);
+		menu.getContentPane().add(comenzarPerso);
 		
-
+		
+		//agrego los botones a una lista para poder mostrarlos y ocultarlos 
+		
+				interfazMenu.add(nuevoJuego);
+				interfazMenu.add(ranking);
+				interfazMenu.add(salir);
+				interfazMenu.add(personalizado);
+				
+				interfazdificultad.add(dificil);
+				interfazdificultad.add(facil);
+				interfazdificultad.add(normal);
+				interfazdificultad.add(volver);
+				
+				interfazPersonalizado.add(tutorialPersonalizado);
+				interfazPersonalizado.add(cantidadDeTurnos);
+				interfazPersonalizado.add(labelCantidadTurnos);
+				interfazPersonalizado.add(volver);
+				interfazPersonalizado.add(comenzarPerso);
+				
+				centrarBotones(interfazMenu, anchoFrame);
+				centrarBotones(interfazdificultad, anchoFrame);
+				
+				//se empieza con el menu mostrado y la dificultad ocultada
+				ocultarUI(interfazdificultad);
+				ocultarUI(interfazPersonalizado);
 	}
 	
 	private void ocultarUI(ArrayList<JComponent> component) {
@@ -261,6 +273,11 @@ public class ventana {
 
 	private void iniciarJuego(int i) {
 		juego = new App(i);
+		juego.mostrarse();
+		menu.dispose();
+	}
+	private void iniciarJuego(int i,int k) {
+		juego = new App(i,k);
 		juego.mostrarse();
 		menu.dispose();
 	}
