@@ -63,7 +63,7 @@ public class ventana {
 	private void initialize() {
 		final ArrayList<JComponent> interfazMenu = new ArrayList<JComponent>();
 		final ArrayList<JComponent> interfazdificultad = new ArrayList<JComponent>();
-		final ArrayList<JComponent> interfazPersonalizado = new ArrayList<>();
+		final ArrayList<JComponent> interfazPersonalizado = new ArrayList<JComponent>();
 		menu = new JFrame();
 		menu.setResizable(false);
 		menu.setIconImage(Toolkit.getDefaultToolkit().getImage(ventana.class.getResource("/imagenes/icono_lights_out.png")));
@@ -121,10 +121,12 @@ public class ventana {
 				Integer segundoPuesto=(rankingActual.size()>=2)?rankingActual.get(1):0;
 				Integer tercerPuesto=(rankingActual.size()>=3)?rankingActual.get(2):0;
 				Integer cuartoPuesto=(rankingActual.size()>=4)?rankingActual.get(3):0;
-				muestraRanking.showMessageDialog(menu, "Ranking: \nPrimer Puesto: " + primerPuesto +" Turnos"
+				
+				String mensajeAMostrar=(rankingActual.size()==0)?"Aun no hay ranking para mostrar":"Ranking: \nPrimer Puesto: " + primerPuesto +" Turnos"
 						+ "\nSegundo Puesto: " + segundoPuesto + " Turnos"
 						+ "\nTercer Puesto: " + tercerPuesto + " Turnos"
-						+ "\nCuarto Puesto: " + cuartoPuesto + " Turnos");
+						+ "\nCuarto Puesto: " + cuartoPuesto + " Turnos";
+				muestraRanking.showMessageDialog(menu, mensajeAMostrar);
 			}
 		});
 		
