@@ -42,8 +42,6 @@ public class Principal {
 	public static void main(String[] args) {
 		ventana menu = new ventana();
 		menu.mostrarse();	
-		App juego=new App(3,2);
-		juego.mostrarse();
-	}
+}
 
 }

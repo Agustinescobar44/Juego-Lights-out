@@ -65,12 +65,11 @@ public class JuegoGanado {
 		
 		int TurnosUtilizados=Principal.devolverTurnos();
 		
-		int RecordActual=Principal.devolverRecord();
+		int RecordActual=(Principal.devolverRecord()==10000)? 0: Principal.devolverRecord();
 		
 		JLabel lblTurnosUtilizados = new JLabel("Turnos utilizados: " + TurnosUtilizados);
 		lblTurnosUtilizados.setBounds(122, 74, 179, 16);
 		frame.getContentPane().add(lblTurnosUtilizados);
-		
 		
 		
 		JLabel textRecord = new JLabel("Record: " + RecordActual +" turnos.");

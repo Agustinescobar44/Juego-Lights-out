@@ -25,9 +25,10 @@ public class lightsOut{
 		for (int k = 0; k <i*i; k++) {
 			luces[k] = false;
 		}
+		//luces seteadas para tablero 4x4
 		luces[0]=true;
 		luces[1]=true;
-		luces[3]=true;
+		luces[4]=true;
 		setearVecinos(i);
 		for(int k=1;k<j;k++) {
 			int indiceRandom=(int) (Math.random()*(luces.length-1));
