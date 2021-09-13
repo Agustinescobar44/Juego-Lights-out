@@ -40,7 +40,7 @@ public class Principal {
     }
 
 	public static void main(String[] args) {
-		ventana menu = new ventana();
+		Ventana menu = new Ventana();
 		menu.mostrarse();	
 }
 
