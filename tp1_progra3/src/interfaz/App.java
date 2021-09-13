@@ -27,7 +27,7 @@ import java.awt.Toolkit;
 public class App {
 
 	private JFrame frmLightsOut;
-	private lightsOut juego;
+	private lightsOut juego; 
 	
 	
 	
