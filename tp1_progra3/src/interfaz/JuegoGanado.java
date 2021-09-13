@@ -60,6 +60,9 @@ public class JuegoGanado {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().setBackground(new Color(30, 144, 255));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(ventana.class.getResource("/imagenes/icono_lights_out.png")));
+		frame.setTitle("Lights Out!");
+		
 		JLabel lblGanaste = new JLabel("Ganaste!");
 		lblGanaste.setBounds(182, 34, 70, 15);
 		lblGanaste.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
