@@ -15,7 +15,7 @@ import java.awt.event.ActionEvent;
 public class JuegoGanado {
 
 	private JFrame frame;
-	ventana vent=new ventana();
+	Ventana vent=new Ventana();
 
 	/**
 	 * Launch the application.
@@ -60,7 +60,7 @@ public class JuegoGanado {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().setBackground(new Color(30, 144, 255));
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(ventana.class.getResource("/imagenes/icono_lights_out.png")));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(Ventana.class.getResource("/imagenes/icono_lights_out.png")));
 		frame.setTitle("Lights Out!");
 		
 		JLabel lblGanaste = new JLabel("Ganaste!");
