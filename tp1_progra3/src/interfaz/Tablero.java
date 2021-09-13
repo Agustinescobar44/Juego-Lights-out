@@ -71,7 +71,7 @@ public class Tablero {
 		int x = (pantalla.width/2) - (ancho/2);
 		int y = (pantalla.height/2) - (alto/2);
 		frmLightsOut.setBounds(x, y, ancho, alto);
-		frmLightsOut.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmLightsOut.setDefaultCloseOperation(volverAlmenu());
 		frmLightsOut.getContentPane().setLayout(new GridLayout(0, i, 2, 2));
 		frmLightsOut.getContentPane().setBackground(new Color(30, 144, 255));
 		
@@ -101,6 +101,11 @@ public class Tablero {
 		
 	}
 	
+	private int volverAlmenu() {
+		
+		return 0;
+	}
+
 	private void agregarActionListener(JButton boton, final int i , int ancho , int alto , int cantidad) {
 		boton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
