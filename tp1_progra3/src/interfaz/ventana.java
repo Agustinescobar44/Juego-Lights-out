@@ -18,6 +18,10 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import java.awt.Toolkit;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
 import java.awt.Cursor;
 import java.awt.Component;
 import javax.swing.JTextField;
@@ -118,6 +122,8 @@ public class ventana {
 		ranking.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane muestraRanking = new JOptionPane();
+				UIManager.put("OptionPane.background", new Color(30, 144, 255));
+				UIManager.getLookAndFeelDefaults().put("Panel.background", new Color(30, 144, 255));
 				ArrayList<Integer> rankingActual=Principal.devolverRanking();
 				Integer primerPuesto=(rankingActual.size()>=1)?rankingActual.get(0):0;
 				Integer segundoPuesto=(rankingActual.size()>=2)?rankingActual.get(1):0;

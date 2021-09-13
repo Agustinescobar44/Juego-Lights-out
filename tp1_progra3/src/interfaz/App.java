@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
@@ -42,7 +43,7 @@ public class App {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					App window = new App(7);
+					App window = new App(4);
 					window.frmLightsOut.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -87,6 +88,7 @@ public class App {
 		frmLightsOut.setBounds(x, y, ancho, alto);
 		frmLightsOut.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmLightsOut.getContentPane().setLayout(new GridLayout(0, i, 2, 2));
+		frmLightsOut.getContentPane().setBackground(new Color(30, 144, 255));
 		
 		//escalarImagenes(ancho , alto , i);
 		luzPrendidaIcono = escalarImagen(ancho, alto, i, luzPrendidaIcono);
