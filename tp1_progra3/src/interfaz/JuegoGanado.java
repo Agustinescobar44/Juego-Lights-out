@@ -65,16 +65,18 @@ public class JuegoGanado {
 		
 		int TurnosUtilizados=Principal.devolverTurnos();
 		
-		int RecordActual=(Principal.devolverRecord()==10000)? 0: Principal.devolverRecord();
-		
 		JLabel lblTurnosUtilizados = new JLabel("Turnos utilizados: " + TurnosUtilizados);
 		lblTurnosUtilizados.setBounds(122, 74, 179, 16);
 		frame.getContentPane().add(lblTurnosUtilizados);
 		
+		int RecordActual=Principal.devolverRecord();
 		
 		JLabel textRecord = new JLabel("Record: " + RecordActual +" turnos.");
 		textRecord.setBounds(122, 102, 207, 15);
-		frame.getContentPane().add(textRecord);
+		//el record solo se muestra si fue modificado
+		if(RecordActual!=10000) {
+			frame.getContentPane().add(textRecord);
+		}
 		
 		
 		JButton btnVolverAlMenu = new JButton("Volver al menu");
