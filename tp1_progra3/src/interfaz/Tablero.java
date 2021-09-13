@@ -24,7 +24,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 
 
-public class App {
+public class Tablero {
 
 	private JFrame frmLightsOut;
 	private lightsOut juego; 
@@ -32,35 +32,20 @@ public class App {
 	
 	
 	//imagenes
-	private ImageIcon luzPrendidaIcono=  new ImageIcon(App.class.getResource("/imagenes/luzPrendidaModif.png"));
-	private ImageIcon luzPrendidaIconoHover=  new ImageIcon(App.class.getResource("/imagenes/luzPrendidaModifHover.png"));
-	private ImageIcon luzApagadaIcono= new ImageIcon(App.class.getResource("/imagenes/luzApagadaModif.png"));
-	private ImageIcon luzApagadaIconoHover= new ImageIcon(App.class.getResource("/imagenes/luzApagadaModifHover.png"));
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					App window = new App(4);
-					window.frmLightsOut.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private ImageIcon luzPrendidaIcono=  new ImageIcon(Tablero.class.getResource("/imagenes/luzPrendidaModif.png"));
+	private ImageIcon luzPrendidaIconoHover=  new ImageIcon(Tablero.class.getResource("/imagenes/luzPrendidaModifHover.png"));
+	private ImageIcon luzApagadaIcono= new ImageIcon(Tablero.class.getResource("/imagenes/luzApagadaModif.png"));
+	private ImageIcon luzApagadaIconoHover= new ImageIcon(Tablero.class.getResource("/imagenes/luzApagadaModifHover.png"));
 
 	/**
 	 * Create the application.
 	 */
-	public App(int i) {
+	public Tablero(int i) {
 		juego= new lightsOut(i);
 		initialize(i);
 	}
 
-    public App(int i,int j) {
+    public Tablero(int i,int j) {
     	Principal.tableroArmado(true);
 		juego=new lightsOut(i,j);
 		initialize(i);
@@ -76,7 +61,7 @@ public class App {
 	 */
 	private void initialize(int i ) {
 		frmLightsOut = new JFrame();
-		frmLightsOut.setIconImage(Toolkit.getDefaultToolkit().getImage(App.class.getResource("/imagenes/icono_lights_out.png")));
+		frmLightsOut.setIconImage(Toolkit.getDefaultToolkit().getImage(Tablero.class.getResource("/imagenes/icono_lights_out.png")));
 		frmLightsOut.setTitle("Lights Out!");
 		
 		//obtengo las dimensiones de la pantalla para posicionar la ventana

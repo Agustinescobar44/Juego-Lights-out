@@ -28,32 +28,17 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import java.awt.Color;
 
-public class ventana {
+public class Ventana {
 
 	private static JFrame menu;
-	App juego;
+	Tablero juego;
 	private JTextField cantidadDeTurnos;
 //	 private static DatosJuego data=new DatosJuego();
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					final ventana window = new ventana();
-					window.menu.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
 	 */
-	public ventana() {
+	public Ventana() {
 		initialize();
 	}
 
@@ -72,7 +57,7 @@ public class ventana {
 		menu = new JFrame();
 		menu.getContentPane().setBackground(new Color(30, 144, 255));
 		menu.setResizable(false);
-		menu.setIconImage(Toolkit.getDefaultToolkit().getImage(ventana.class.getResource("/imagenes/icono_lights_out.png")));
+		menu.setIconImage(Toolkit.getDefaultToolkit().getImage(Ventana.class.getResource("/imagenes/icono_lights_out.png")));
 		//acomodado de la ventana
 		
 		int anchoFrame=450;
@@ -287,12 +272,12 @@ public class ventana {
 	}
 
 	private void iniciarJuego(int i) {
-		juego = new App(i);
+		juego = new Tablero(i);
 		juego.mostrarse();
 		menu.dispose();
 	}
 	private void iniciarJuego(int i,int k) {
-		juego = new App(i,k);
+		juego = new Tablero(i,k);
 		juego.mostrarse();
 		menu.dispose();
 	}
