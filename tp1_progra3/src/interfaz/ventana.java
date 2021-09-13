@@ -22,6 +22,7 @@ import java.awt.Cursor;
 import java.awt.Component;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import java.awt.Color;
 
 public class ventana {
 
@@ -65,6 +66,7 @@ public class ventana {
 		final ArrayList<JComponent> interfazdificultad = new ArrayList<JComponent>();
 		final ArrayList<JComponent> interfazPersonalizado = new ArrayList<>();
 		menu = new JFrame();
+		menu.getContentPane().setBackground(new Color(30, 144, 255));
 		menu.setResizable(false);
 		menu.setIconImage(Toolkit.getDefaultToolkit().getImage(ventana.class.getResource("/imagenes/icono_lights_out.png")));
 		//acomodado de la ventana
