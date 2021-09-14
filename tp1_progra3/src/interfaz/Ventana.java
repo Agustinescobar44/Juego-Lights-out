@@ -191,7 +191,7 @@ public class Ventana {
 		menu.getContentPane().add(dificil);
 		
 		//interfaz de juego personalizado----------------------------------------------
-		JTextField cantidadDeTurnos = new JTextField();
+		final JTextField cantidadDeTurnos = new JTextField();
 		cantidadDeTurnos.setBounds(223, 145, 86, 20);
 		menu.getContentPane().add(cantidadDeTurnos);
 		cantidadDeTurnos.setColumns(10);
