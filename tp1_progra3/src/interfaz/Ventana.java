@@ -221,11 +221,17 @@ public class Ventana {
 		JButton comenzarPerso = new JButton("Comenzar");
 		comenzarPerso.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JOptionPane exception = new JOptionPane();
 				try {
-					iniciarJuego(4, Integer.parseInt(cantidadDeTurnos.getText()));
-				} catch (Exception e2) {
-					JOptionPane exception = new JOptionPane();
+					int turnos = Integer.parseInt(cantidadDeTurnos.getText());
+					iniciarJuego(4, turnos);
+
+				} catch (NumberFormatException excepcion) {
 					exception.showMessageDialog(menu, "Solo se admiten numeros!");
+					cantidadDeTurnos.setText("");
+				} catch (IllegalArgumentException numeroIlegal) {
+					exception.showMessageDialog(menu, "Solo se admiten numeros superiores a 1!");
+					cantidadDeTurnos.setText("");
 				}
 			}
 		});
@@ -274,6 +280,7 @@ public class Ventana {
 		juego = new Tablero(i);
 		juego.mostrarse();
 		menu.dispose();
+		
 	}
 	private void iniciarJuego(int i,int k) {
 		juego = new Tablero(i,k);

@@ -43,9 +43,13 @@ public class Tablero {
 	public Tablero(int i) {
 		juego= new LightsOut(i);
 		initialize(i);
+		
 	}
 
     public Tablero(int i,int j) {
+    	if(j<=0) {
+			throw new IllegalArgumentException("el numero debe ser mayor a 1 el tuyo fue: "+i);
+		}
     	Principal.tableroArmado(true);
 		juego=new LightsOut(i,j);
 		initialize(i);
