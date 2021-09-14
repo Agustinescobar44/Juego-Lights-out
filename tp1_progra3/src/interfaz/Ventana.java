@@ -230,7 +230,7 @@ public class Ventana {
 					exception.showMessageDialog(menu, "Solo se admiten numeros!");
 					cantidadDeTurnos.setText("");
 				} catch (IllegalArgumentException numeroIlegal) {
-					exception.showMessageDialog(menu, "Solo se admiten numeros superiores a 1!");
+					exception.showMessageDialog(menu, "Solo se admiten numeros superiores a 0!");
 					cantidadDeTurnos.setText("");
 				}
 			}
