@@ -31,7 +31,7 @@ import java.awt.Color;
 public class Ventana {
 
 	private static JFrame menu;
-	Tablero juego;
+	private Tablero juego;
 	private JTextField cantidadDeTurnos;
 //	 private static DatosJuego data=new DatosJuego();
 
