@@ -26,7 +26,7 @@ import java.awt.Toolkit;
 
 public class Tablero {
 
-	private JFrame frmLightsOut;
+	private JFrame frameJuego;
 	private lightsOut juego; 
 	
 	
@@ -53,16 +53,16 @@ public class Tablero {
 	}
 
 	public void mostrarse() {
-		frmLightsOut.setVisible(true);
+		frameJuego.setVisible(true);
 	}
 	
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(int i ) {
-		frmLightsOut = new JFrame();
-		frmLightsOut.setIconImage(Toolkit.getDefaultToolkit().getImage(Tablero.class.getResource("/imagenes/icono_lights_out.png")));
-		frmLightsOut.setTitle("Lights Out!");
+		frameJuego = new JFrame();
+		frameJuego.setIconImage(Toolkit.getDefaultToolkit().getImage(Tablero.class.getResource("/imagenes/icono_lights_out.png")));
+		frameJuego.setTitle("Lights Out!");
 		
 		//obtengo las dimensiones de la pantalla para posicionar la ventana
 		Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
@@ -70,10 +70,10 @@ public class Tablero {
 		int alto = 600;
 		int x = (pantalla.width/2) - (ancho/2);
 		int y = (pantalla.height/2) - (alto/2);
-		frmLightsOut.setBounds(x, y, ancho, alto);
-		frmLightsOut.setDefaultCloseOperation(volverAlmenu());
-		frmLightsOut.getContentPane().setLayout(new GridLayout(0, i, 2, 2));
-		frmLightsOut.getContentPane().setBackground(new Color(30, 144, 255));
+		frameJuego.setBounds(x, y, ancho, alto);
+		frameJuego.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frameJuego.getContentPane().setLayout(new GridLayout(0, i, 2, 2));
+		frameJuego.getContentPane().setBackground(new Color(30, 144, 255));
 		
 		//escalarImagenes(ancho , alto , i);
 		luzPrendidaIcono = escalarImagen(ancho, alto, i, luzPrendidaIcono);
@@ -91,26 +91,22 @@ public class Tablero {
 			temp.setFocusPainted(false);
 			temp.setOpaque(false);
 			temp.setBorderPainted(false);
-			agregarActionListener(temp, j , ancho , alto , i);
+			agregarActionListener(temp, j);
 			agregarHoverBotones(temp , j);
 			botones.add(temp);
-			frmLightsOut.getContentPane().add(temp);
+			frameJuego.getContentPane().add(temp);
 		}
 		
-		verLuces(frmLightsOut);
+		verLuces(frameJuego);
 		
 	}
 	
-	private int volverAlmenu() {
-		
-		return 0;
-	}
 
-	private void agregarActionListener(JButton boton, final int i , int ancho , int alto , int cantidad) {
+	private void agregarActionListener(JButton boton, final int i) {
 		boton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				juego.cambiarLuces(i);
-				verLuces(frmLightsOut );
+				verLuces(frameJuego );
 				Principal.modificarTurnos(Principal.devolverTurnos()+1);
 				if(juego.isGanador()) {
 					final int TurnosUtilizados=Principal.devolverTurnos();
@@ -120,7 +116,7 @@ public class Tablero {
 					Principal.tableroArmado(false);
 					JuegoGanado juegoGanado=new JuegoGanado();
 					juegoGanado.mostrarse();
-					frmLightsOut.dispose();
+					frameJuego.dispose();
 					
 				}
 			}
@@ -163,7 +159,7 @@ public class Tablero {
 		return (new ImageIcon(tempCambiada));
 	}
 	
-	
+	//agregar las imagenes a los botones
 	private void verLuces(JFrame frame) {
 		
 		Component[] componentes= frame.getContentPane().getComponents();
