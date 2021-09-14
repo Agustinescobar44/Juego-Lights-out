@@ -41,10 +41,6 @@ class LightsOutTest {
 		assertEquals(2, game.dameVecinos(game.tamanio()-1).size()); // esquina abajo derecha
 		assertEquals(2, game.dameVecinos(game.tamanio()-1-3).size()); // esquina abajo izquierda
 	}
-	@Test
-	void testVecinos() {
-		assertEquals(2, game.dameVecinos(3).size());
-	}
 	@Test 
 	void testCambiarLucesEsquinaIzquierda() {
 		boolean luz = game.estaPrendida(0); //esquina izquierda
