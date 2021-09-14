@@ -4,7 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-import logica.lightsOut;
+import logica.LightsOut;
 
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -27,7 +27,7 @@ import java.awt.Toolkit;
 public class Tablero {
 
 	private JFrame frameJuego;
-	private lightsOut juego; 
+	private LightsOut juego; 
 	
 	
 	
@@ -41,13 +41,13 @@ public class Tablero {
 	 * Create the application.
 	 */
 	public Tablero(int i) {
-		juego= new lightsOut(i);
+		juego= new LightsOut(i);
 		initialize(i);
 	}
 
     public Tablero(int i,int j) {
     	Principal.tableroArmado(true);
-		juego=new lightsOut(i,j);
+		juego=new LightsOut(i,j);
 		initialize(i);
 
 	}

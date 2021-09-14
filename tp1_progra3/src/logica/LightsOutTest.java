@@ -4,13 +4,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class lightsOutTest {
-	lightsOut game = new lightsOut(4);
+class LightsOutTest {
+	LightsOut game = new LightsOut(4);
 
 	
 	@Test
 	void testSetearVecinosCon5Columnas() {
-		game= new lightsOut(5);
+		game= new LightsOut(5);
 		assertEquals(2, game.dameVecinos(0).size()); //esquina arriba izquierda
 		assertEquals(2, game.dameVecinos(4).size()); //esquina arriba derecha
 		assertEquals(3, game.dameVecinos(5).size()); //costado izquierda
@@ -21,7 +21,7 @@ class lightsOutTest {
 	}
 	@Test
 	void testSetearVecinosCon3Columnas() {
-		game= new lightsOut(3);
+		game= new LightsOut(3);
 		assertEquals(2, game.dameVecinos(0).size()); //esquina arriba izquierda
 		assertEquals(2, game.dameVecinos(2).size()); //esquina arriba derecha
 		assertEquals(3, game.dameVecinos(3).size()); //costado izquierda
@@ -32,7 +32,7 @@ class lightsOutTest {
 	}
 	@Test
 	void testSetearVecinosCon4Columnas() {
-		lightsOut game = new lightsOut(4);
+		LightsOut game = new LightsOut(4);
 		assertEquals(2, game.dameVecinos(0).size()); //esquina arriba izquierda
 		assertEquals(2, game.dameVecinos(3).size()); //esquina arriba derecha
 		assertEquals(3, game.dameVecinos(4).size()); //costado izquierda

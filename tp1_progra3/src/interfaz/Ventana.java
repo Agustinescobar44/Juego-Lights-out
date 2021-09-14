@@ -32,7 +32,6 @@ public class Ventana {
 
 	private static JFrame menu;
 	private Tablero juego;
-	private JTextField cantidadDeTurnos;
 //	 private static DatosJuego data=new DatosJuego();
 
 	/**
@@ -192,7 +191,7 @@ public class Ventana {
 		menu.getContentPane().add(dificil);
 		
 		//interfaz de juego personalizado----------------------------------------------
-		cantidadDeTurnos = new JTextField();
+		JTextField cantidadDeTurnos = new JTextField();
 		cantidadDeTurnos.setBounds(223, 145, 86, 20);
 		menu.getContentPane().add(cantidadDeTurnos);
 		cantidadDeTurnos.setColumns(10);

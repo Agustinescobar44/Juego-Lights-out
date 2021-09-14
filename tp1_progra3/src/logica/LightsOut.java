@@ -4,13 +4,13 @@ package logica;
 import java.util.Random;
 import java.util.Set;
 
-public class lightsOut{
+public class LightsOut{
 
 	private Random rd = new Random();
 	private Boolean[] luces;
 	private Grafo mapa;
 	
-	public lightsOut(int i) {
+	public LightsOut(int i) {
 		mapa = new Grafo(i*i);
 		luces = new Boolean[i*i];
 		for (int j = 0; j < i*i; j++) {
@@ -19,7 +19,7 @@ public class lightsOut{
 		setearVecinos(i);
 	}
 
-    public lightsOut(int i, int j) {
+    public LightsOut(int i, int j) {
 		mapa = new Grafo(i*i);
 		luces = new Boolean[i*i];
 		for (int k = 0; k <i*i; k++) {

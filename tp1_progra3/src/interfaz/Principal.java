@@ -3,7 +3,7 @@ package interfaz;
 import java.util.ArrayList;
 
 import logica.DatosJuego;
-import logica.lightsOut;
+import logica.LightsOut;
 
 public class Principal {
 
