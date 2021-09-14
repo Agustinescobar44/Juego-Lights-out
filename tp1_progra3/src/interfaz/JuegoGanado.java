@@ -18,26 +18,6 @@ public class JuegoGanado {
 	Ventana vent=new Ventana();
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					JuegoGanado window = new JuegoGanado();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-		
-		
-				
-				
-	}
-
-	/**
 	 * Create the application.
 	 */
 	public JuegoGanado() {
