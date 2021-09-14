@@ -6,30 +6,40 @@ import org.junit.jupiter.api.Test;
 
 class lightsOutTest {
 	lightsOut game = new lightsOut(4);
-	void setUp() throws Exception {
-		
-	}
 
-	@Test
-	void testSetearVecinosCon4Columnas() {
-		assertEquals(2, game.dameVecinos(0).size()); //esquina izuierda
-		assertEquals(4, game.dameVecinos(5).size()); // centro
-		assertEquals(2, game.dameVecinos(game.tamanio()-1).size()); // esquina abajo derecha
-	}
+	
 	@Test
 	void testSetearVecinosCon5Columnas() {
 		game= new lightsOut(5);
-		assertEquals(2, game.dameVecinos(0).size());
-		assertEquals(4, game.dameVecinos(6).size());
-		assertEquals(4, game.dameVecinos(8).size());
-		assertEquals(2, game.dameVecinos(game.tamanio()-1).size());
+		assertEquals(2, game.dameVecinos(0).size()); //esquina arriba izquierda
+		assertEquals(2, game.dameVecinos(4).size()); //esquina arriba derecha
+		assertEquals(3, game.dameVecinos(5).size()); //costado izquierda
+		assertEquals(4, game.dameVecinos(6).size()); // centro
+		assertEquals(3, game.dameVecinos(9).size()); //costado derecha
+		assertEquals(2, game.dameVecinos(game.tamanio()-1).size()); // esquina abajo derecha
+		assertEquals(2, game.dameVecinos(game.tamanio()-1-4).size()); // esquina abajo izquierda
 	}
 	@Test
 	void testSetearVecinosCon3Columnas() {
 		game= new lightsOut(3);
-		assertEquals(2, game.dameVecinos(0).size());
-		assertEquals(4, game.dameVecinos(4).size());
-		assertEquals(2, game.dameVecinos(game.tamanio()-1).size());
+		assertEquals(2, game.dameVecinos(0).size()); //esquina arriba izquierda
+		assertEquals(2, game.dameVecinos(2).size()); //esquina arriba derecha
+		assertEquals(3, game.dameVecinos(3).size()); //costado izquierda
+		assertEquals(4, game.dameVecinos(4).size()); // centro
+		assertEquals(3, game.dameVecinos(5).size()); //costado derecha
+		assertEquals(2, game.dameVecinos(game.tamanio()-1).size()); // esquina abajo derecha
+		assertEquals(2, game.dameVecinos(game.tamanio()-1-2).size()); // esquina abajo izquierda
+	}
+	@Test
+	void testSetearVecinosCon4Columnas() {
+		lightsOut game = new lightsOut(4);
+		assertEquals(2, game.dameVecinos(0).size()); //esquina arriba izquierda
+		assertEquals(2, game.dameVecinos(3).size()); //esquina arriba derecha
+		assertEquals(3, game.dameVecinos(4).size()); //costado izquierda
+		assertEquals(4, game.dameVecinos(5).size()); // centro
+		assertEquals(3, game.dameVecinos(7).size()); //costado derecha
+		assertEquals(2, game.dameVecinos(game.tamanio()-1).size()); // esquina abajo derecha
+		assertEquals(2, game.dameVecinos(game.tamanio()-1-3).size()); // esquina abajo izquierda
 	}
 	@Test
 	void testVecinos() {
