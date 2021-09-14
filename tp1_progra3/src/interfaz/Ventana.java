@@ -20,7 +20,6 @@ import java.awt.Toolkit;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import java.awt.Cursor;
 import java.awt.Component;
@@ -222,6 +221,8 @@ public class Ventana {
 		comenzarPerso.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane exception = new JOptionPane();
+				UIManager.put("OptionPane.background", new Color(30, 144, 255));
+				UIManager.getLookAndFeelDefaults().put("Panel.background", new Color(30, 144, 255));
 				try {
 					int turnos = Integer.parseInt(cantidadDeTurnos.getText());
 					iniciarJuego(4, turnos);
